@@ -10,7 +10,7 @@ class Player(Block):
         if (self.speed[1] < 10):
             if self.counter < 3:
                 self.speed[1] += 1
-            if self.counter >= 10:
+            if self.counter >= 15:
                 self.counter = 0
             self.counter += 1
             
