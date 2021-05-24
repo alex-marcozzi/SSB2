@@ -1,6 +1,7 @@
 import sys, pygame
-from block import Block
+from block  import Block
 from player import Player
+from frame  import Frame
 import os
 os.environ['SDL_AUDIODRIVER'] = 'dsp'
 pygame.init()
@@ -18,6 +19,20 @@ player = Player(ballrect, speed, RED)
 
 squarerect = pygame.Rect(230, 500, 80, 80)
 square = Block(squarerect, [0, 0], (150, 150, 150))
+blockmap = [[Block(pygame.Rect(0, 500, 80, 80), [-1, 0], (150, 150, 150))]]
+for i in range(1, 12):
+    thing = [Block(pygame.Rect(80 * i, 500, 80, 80), [-1, 0], (150, 150, 150))]
+    blockmap.append(thing)
+    print(thing[0].left())
+
+for i in range(100):
+    thing = [Block(pygame.Rect(880, 500, 80, 80), [-1, 0], (150, 150, 150))]
+    print(thing[0].left())
+    #break
+    blockmap.append(thing)
+    #the problem is the transition in frame, maybe make it <= 0 in update?
+
+frame = Frame(blockmap, 15)
 
 jumped    = False
 speed     = 3 # / max_count
@@ -38,6 +53,7 @@ while 1:
     if (count <= speed):
         player.update()
         square.update()
+        frame.update()
         
         if Block.isOnTop(player, square):
             player.speed[1] = 0
@@ -64,6 +80,7 @@ while 1:
     screen.fill(black)
     player.draw(screen)
     square.draw(screen)
+    frame.draw(screen)
     #screen.blit(ball, ballrect)
     #pygame.draw.rect(screen, RED, ballrect)
     pygame.display.flip()
