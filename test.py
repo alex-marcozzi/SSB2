@@ -35,7 +35,7 @@ for i in range(12, 20):
 frame = Frame(blockmap, 15)
 
 jumped    = False
-speed     = 3 # / max_count
+speed     = 5 # / max_count
 max_count = 5
 count     = 0
 counter   = 0
@@ -49,27 +49,33 @@ while 1:
     #if ballrect.top < 0 or ballrect.bottom > height:
     #    speed[1] = -speed[1]
 
+
+
     count += 1
     if (count <= speed):
         player.update()
         square.update()
         frame.update()
+        keys = pygame.key.get_pressed()
         current_blocks = frame.getRelevantBlocks()
         for block in current_blocks:
             if Block.isOnTop(player, block):
                 player.speed[1] = 0
                 Block.snapOnTop(player, block)
+                if keys[pygame.K_UP]:
+                    player.jump()
+                    #jumped = True
                 #square.speed = [-2, 0]
-        if player.top() < 0 or player.bottom() > height:
-            player.speed[1] = 0#-player.speed[1]
+        #if player.top() < 0 or player.bottom() > height:
+        #    player.speed[1] = 0#-player.speed[1]
 
-        if (jumped == False and player.speed[1] == 0):
-            counter += 1
+        #if (jumped == False and player.speed[1] == 0):
+        #    counter += 1
 
-        if (jumped == False and counter > 250):
-            print("called")
-            player.jump()
-            jumped = True
+        #if (jumped == False and counter > 250):
+        #    print("called")
+        #    player.jump()
+        #    jumped = True
 
     elif (count >= max_count):
         count = 0
