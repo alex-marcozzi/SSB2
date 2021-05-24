@@ -27,6 +27,8 @@ class Block:
 
     @staticmethod
     def isOnTop(block1, block2):
+        if block1.speed[1] < 0:
+            return False
         if (block1.bottom() >= block2.top() and block1.bottom() <= block2.bottom()):
             if (block1.right() >= block2.left() and block1.right() <= block2.right()):
                 return True

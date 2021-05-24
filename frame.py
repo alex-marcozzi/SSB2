@@ -1,4 +1,5 @@
 import pygame # maybe not necessary, take out?
+from itertools import chain
 
 class Frame:
     pos = 0
@@ -11,10 +12,13 @@ class Frame:
             for block in self.level[i]:
                 block.update()
 
-        if (self.level[self.pos][0].right() < 0):
+        if (self.level[self.pos][0].right() <= 0):
             self.pos += 1
 
     def draw(self, screen):
         for i in range(self.pos, min(self.pos + self.length, len(self.level) - 1)):
             for block in self.level[i]:
                 block.draw(screen)
+
+    def getRelevantBlocks(self):
+        return list(chain.from_iterable(self.level[self.pos+2:self.pos+8]))

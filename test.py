@@ -19,18 +19,18 @@ player = Player(ballrect, speed, RED)
 
 squarerect = pygame.Rect(230, 500, 80, 80)
 square = Block(squarerect, [0, 0], (150, 150, 150))
-blockmap = [[Block(pygame.Rect(0, 500, 80, 80), [-1, 0], (150, 150, 150))]]
+blockmap = [[Block(pygame.Rect(0, 500, 80, 80), [-2, 0], (150, 150, 150))]]
 for i in range(1, 12):
-    thing = [Block(pygame.Rect(80 * i, 500, 80, 80), [-1, 0], (150, 150, 150))]
+    thing = [Block(pygame.Rect(80 * i, 500, 80, 80), [-2, 0], (150, 150, 150))]
     blockmap.append(thing)
-    print(thing[0].left())
 
 for i in range(100):
-    thing = [Block(pygame.Rect(880, 500, 80, 80), [-1, 0], (150, 150, 150))]
-    print(thing[0].left())
-    #break
+    thing = [Block(pygame.Rect(880, 500, 80, 80), [-2, 0], (150, 150, 150))]
     blockmap.append(thing)
-    #the problem is the transition in frame, maybe make it <= 0 in update?
+
+for i in range(12, 20):
+    thing = Block(pygame.Rect(880, 300, 80, 80), [-2, 0], (150, 150, 150))
+    blockmap[i].append(thing)
 
 frame = Frame(blockmap, 15)
 
@@ -54,18 +54,19 @@ while 1:
         player.update()
         square.update()
         frame.update()
-        
-        if Block.isOnTop(player, square):
-            player.speed[1] = 0
-            Block.snapOnTop(player, square)
-            square.speed = [-2, 0]
+        current_blocks = frame.getRelevantBlocks()
+        for block in current_blocks:
+            if Block.isOnTop(player, block):
+                player.speed[1] = 0
+                Block.snapOnTop(player, block)
+                #square.speed = [-2, 0]
         if player.top() < 0 or player.bottom() > height:
             player.speed[1] = 0#-player.speed[1]
 
         if (jumped == False and player.speed[1] == 0):
             counter += 1
 
-        if (jumped == False and counter > 100):
+        if (jumped == False and counter > 250):
             print("called")
             player.jump()
             jumped = True
