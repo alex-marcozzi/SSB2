@@ -14,10 +14,16 @@ screen = pygame.display.set_mode(size)
 
 #ball = pygame.image.load("intro_ball.gif")
 ballrect = pygame.Rect(200, 200, 80, 80) #ball.get_rect()
-square = Player(ballrect, speed, RED)
+player = Player(ballrect, speed, RED)
 
-jumped = False
-counter = 0
+squarerect = pygame.Rect(230, 500, 80, 80)
+square = Block(squarerect, [0, 0], (150, 150, 150))
+
+jumped    = False
+speed     = 3 # / max_count
+max_count = 5
+count     = 0
+counter   = 0
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
@@ -28,23 +34,35 @@ while 1:
     #if ballrect.top < 0 or ballrect.bottom > height:
     #    speed[1] = -speed[1]
 
-    square.update()
+    count += 1
+    if (count <= speed):
+        player.update()
+        square.update()
+        
+        if Block.isOnTop(player, square):
+            player.speed[1] = 0
+            Block.snapOnTop(player, square)
+            square.speed = [-2, 0]
+        if player.top() < 0 or player.bottom() > height:
+            player.speed[1] = 0#-player.speed[1]
 
-    #if square.left() < 0 or square.right() > width:
-    #    square.speed[0] = -speed[0]
-    if square.top() < 0 or square.bottom() > height:
+        if (jumped == False and player.speed[1] == 0):
+            counter += 1
 
-        square.speed[1] = 0#-square.speed[1]
+        if (jumped == False and counter > 100):
+            print("called")
+            player.jump()
+            jumped = True
 
-    if (jumped == False and square.speed[1] == 0):
-        counter += 1
+    elif (count >= max_count):
+        count = 0
+    
 
-    if (jumped == False and counter > 100):
-        print("called")
-        square.jump()
-        jumped = True
-
+    #if player.left() < 0 or player.right() > width:
+    #    player.speed[0] = -speed[0]
+    
     screen.fill(black)
+    player.draw(screen)
     square.draw(screen)
     #screen.blit(ball, ballrect)
     #pygame.draw.rect(screen, RED, ballrect)
