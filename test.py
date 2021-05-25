@@ -2,16 +2,20 @@ import sys, pygame
 from block  import Block
 from player import Player
 from frame  import Frame
+from enum import Enum
 import os
 os.environ['SDL_AUDIODRIVER'] = 'dsp'
 pygame.init()
 
+#size = width, height = 800, 600
 size = width, height = 800, 600
 speed = [0, 1]
 black = 0, 0, 0
 RED = (255, 0, 0)
 
 screen = pygame.display.set_mode(size)
+
+TestEnum = Enum('TestEnum', 'blah1 blah2 blah3 blah4')
 
 #ball = pygame.image.load("intro_ball.gif")
 ballrect = pygame.Rect(200, 200, 80, 80) #ball.get_rect()
@@ -20,6 +24,7 @@ player = Player(ballrect, speed, RED)
 squarerect = pygame.Rect(230, 500, 80, 80)
 square = Block(squarerect, [0, 0], (150, 150, 150))
 blockmap = [[Block(pygame.Rect(0, 500, 80, 80), [-2, 0], (150, 150, 150))]]
+# stops at 11
 for i in range(1, 12):
     thing = [Block(pygame.Rect(80 * i, 500, 80, 80), [-2, 0], (150, 150, 150))]
     blockmap.append(thing)
@@ -32,7 +37,7 @@ for i in range(12, 20):
     thing = Block(pygame.Rect(880, 300, 80, 80), [-2, 0], (150, 150, 150))
     blockmap[i].append(thing)
 
-frame = Frame(blockmap, 15)
+frame = Frame(blockmap, 12) # <-- this number should match the loops above
 
 jumped    = False
 speed     = 5 # / max_count

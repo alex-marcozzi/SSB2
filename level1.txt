@@ -1,0 +1,886 @@
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+O
+O
+O
+O
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+OO
+OX
+OX
+OX
+OO
+OO
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OOO
+OOO
+OX
+OX
+OX
+OOOO
+OOOO
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+OO
+OX
+OX
+OX O
+OX O
+OX O
+OX
+OX
+OX  O
+OX  O
+OX  O
+OX  O
+OX
+OX
+OX O
+OX O
+OX O
+OX
+OX
+OX
+OO
+OO
+OO
+OO
+OO
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+OO
+OO
+OX
+OX
+OOO
+OOO
+OOO
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OOO
+OOO
+OOO
+OOO
+OOO
+OX
+OX
+OX
+OX  O
+OX  O
+OX  O
+OX
+OX
+OX
+OX    O
+OX    O
+OX    O
+OX
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      OX
+OX      OX
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX
+OX        O
+OX        O
+OX        O OX
+OX          OX
+OX
+OX      O
+OX      O
+OX      O
+OX
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        OX
+OX        OX
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX
+OX
+OX
+OX
+OX        O
+OX        O
+OX
+OX
+OX
+OX
+OX        O
+OX        O
+OX
+OX
+OX
+OX
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        OX
+OX        OX
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        OX
+OX        OX
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX
+OX
+OX       O
+OX
+OX
+OX     O
+OX
+OX
+OX
+OX  O
+OX
+OX
+OO
+OO
+OO
+OO
+OO
+OO
+OX
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+OO
+OO
+OX
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+OO
+OO
+OX
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OOO
+OOO
+OOO
+OX
+OX
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+OX
+OO
+OX
+OX
+OX  O
+OX
+OX
+OX     O
+OX
+OX
+OX        O
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+OX
+OO
+OX
+OX
+OX  O
+OX
+OX
+OX     O
+OX
+OX
+OX        O
+OX
+OX
+OX
+OX     O
+OX
+OX
+OX
+OX  O
+OX
+OX
+OX
+OX
+OX
+OX  O
+OX
+OX
+OX     O
+OX
+OX
+OX        O
+OX
+OX
+OX
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+OX
+OO
+OX
+OX
+OX  O
+OX
+OX
+OX     O
+OX
+OX
+OX        O
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O

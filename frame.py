@@ -3,22 +3,22 @@ from itertools import chain
 
 class Frame:
     pos = 0
-    def __init__(self, level, length):
-        self.level = level
+    def __init__(self, blockmap, length):
+        self.blockmap = blockmap
         self.length = length
 
-    def update(self):
-        for i in range(self.pos, min(self.pos + self.length, len(self.level) - 1)):
-            for block in self.level[i]:
-                block.update()
+    def update(self, clock):
+        for i in range(self.pos, min(self.pos + self.length, len(self.blockmap) - 1)):
+            for block in self.blockmap[i]:
+                block.update(clock)
 
-        if (self.level[self.pos][0].right() <= 0):
+        if (self.blockmap[self.pos][0].right() <= 0):
             self.pos += 1
 
     def draw(self, screen):
-        for i in range(self.pos, min(self.pos + self.length, len(self.level) - 1)):
-            for block in self.level[i]:
+        for i in range(self.pos, min(self.pos + self.length, len(self.blockmap) - 1)):
+            for block in self.blockmap[i]:
                 block.draw(screen)
 
     def getRelevantBlocks(self):
-        return list(chain.from_iterable(self.level[self.pos+2:self.pos+8]))
+        return list(chain.from_iterable(self.blockmap[self.pos+3:self.pos+5]))

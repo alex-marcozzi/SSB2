@@ -7,8 +7,10 @@ class Block:
         self.speed     = speed
         self.color     = color
 
-    def update(self):
-        self.blockrect = self.blockrect.move(self.speed)
+    def update(self, clock):
+        #print(clock)
+        self.blockrect = self.blockrect.move([int(self.speed[0] * clock), 
+            int(self.speed[1] * clock)])
 
     def left(self):
         return self.blockrect.left
