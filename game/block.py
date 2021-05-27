@@ -2,10 +2,11 @@ import pygame
 #pygame.init()
 
 class Block:
-    def __init__(self, blockrect, speed, color):
+    def __init__(self, blockrect, speed, color, is_spike):
         self.blockrect = blockrect
         self.speed     = speed
         self.color     = color
+        self.is_spike  = is_spike
 
     def update(self, clock):
         #print(clock)
@@ -25,7 +26,13 @@ class Block:
         return self.blockrect.bottom
 
     def draw(self, screen):
-        pygame.draw.rect(screen, self.color, self.blockrect)
+        if (self.is_spike):
+             pygame.draw.polygon(screen, self.color,
+                     [[self.left(), self.bottom()], 
+                         [int((self.left() + self.right()) / 2), self.top()],
+                         [self.right(), self.bottom()]])
+        else:
+            pygame.draw.rect(screen, self.color, self.blockrect)
 
     @staticmethod
     def isOnTop(block1, block2):

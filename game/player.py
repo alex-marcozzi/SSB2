@@ -5,7 +5,7 @@ class Player(Block):
         self.jump_height = 3
         self.max_speed = 2
         self.counter = 0
-        Block.__init__(self, blockrect, speed, color)
+        Block.__init__(self, blockrect, speed, color, False)
 
     def update(self, clock):
         Block.update(self, clock)

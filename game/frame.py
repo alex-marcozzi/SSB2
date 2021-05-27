@@ -2,8 +2,8 @@ import pygame # maybe not necessary, take out?
 from itertools import chain
 
 class Frame:
-    pos = 0
     def __init__(self, blockmap, length):
+        self.pos = 0
         self.blockmap = blockmap
         self.length = length
 
