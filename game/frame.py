@@ -21,4 +21,4 @@ class Frame:
                 block.draw(screen)
 
     def getRelevantBlocks(self):
-        return list(chain.from_iterable(self.blockmap[self.pos+3:self.pos+5]))
+        return list(chain.from_iterable(self.blockmap[self.pos+3:self.pos+int(self.length / 2)]))

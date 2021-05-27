@@ -1,13 +1,13 @@
 import pygame
-from block  import Block
-from player import Player
-from frame  import Frame
+from game.block  import Block
+from game.player import Player
+from game.frame  import Frame
 
 class Engine:
     #State = Enum('State', 'home credits playing paused')
     #current_state = State.playing
     def __init__(self, width, height):
-        self.block_size      = 80
+        self.block_size      = 40#80
         self.block_speed     = [-0.5, 0]
         self.block_color     = (150, 150, 150)
         self.running_speed   = 5
@@ -15,7 +15,7 @@ class Engine:
         self.max_counter     = 5
         self.frame_length    = int(width / self.block_size) + 2  # number of squares
         #self.frame_length = 12
-        print(self.frame_length)
+        #print(self.frame_length)
         self.frame_height    = height - 100  # number of pixels
         self.player_color    = (255, 0, 0)
         self.player = Player(pygame.Rect(200, 200, self.block_size,
@@ -43,6 +43,7 @@ class Engine:
                 #print(count)
                 #count += 1
                 character = line[i]
+                # load the regular blocks
                 if (character == 'O'):
                     line_blocks.append(Block(pygame.Rect(
                             self.block_size * (self.frame_length - 1),
@@ -50,6 +51,15 @@ class Engine:
                             self.block_size, self.block_size),
                             self.block_speed,
                             self.block_color))
+                if (character == 'X'):
+                    line_blocks.append(Block(pygame.Rect(
+                            self.block_size * (self.frame_length - 1),
+                            self.frame_height - (self.block_size * i),
+                            self.block_size, self.block_size),
+                            self.block_speed,
+                            (255, 255, 255)))
+
+
             self.blockmap.append(line_blocks)
 
     def reset(self):

@@ -1,4 +1,4 @@
-from block import Block
+from game.block import Block
 
 class Player(Block):
     def __init__(self, blockrect, speed, color):

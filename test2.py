@@ -1,5 +1,5 @@
 import sys, pygame
-from engine import Engine
+from game.engine import Engine
 import os
 os.environ['SDL_AUDIODRIVER'] = 'dsp'
 pygame.init()
@@ -9,7 +9,7 @@ size = width, height = 1200, 800
 
 screen = pygame.display.set_mode(size)
 
-filepath = "testlevel.txt"
+filepath = "assets/levels/level1.txt"
 engine = Engine(width, height)
 engine.loadLevel(filepath)
 engine.reset()
@@ -30,6 +30,6 @@ while 1:
     engine.draw(screen)
     pygame.display.flip()
 
-    if (counter >= 100):
-        print(clock.get_fps())
-        counter = 0
+    #if (counter >= 100):
+    #    print(clock.get_fps())
+    #    counter = 0
