@@ -22,6 +22,8 @@ class Engine:
         self.player_color    = (255, 0, 0)
         self.player = Player(pygame.Rect(200, 200, self.block_size,
                 self.block_size), [0, 1], self.player_color) 
+        self.death_time   = -1
+        self.current_time = -1
 
     def loadLevel(self, filepath):
         # initialize the level's block layout
@@ -70,27 +72,31 @@ class Engine:
         self.is_dead = False
 
     def update(self, clock):
-        #print(self.player.top())
-        keys = pygame.key.get_pressed()
-        #self.running_counter += 1
-        #if (self.running_counter <= self.running_speed):
-        self.player.update(clock)
-        self.frame.update(clock)
-        current_blocks = self.frame.getRelevantBlocks()
-        for block in current_blocks:
-            if Block.isOnTop(self.player, block):
-                if block.is_spike:
+        # small pause after death before resetting
+        if (self.is_dead):
+            self.current_time = pygame.time.get_ticks()
+            if self.death_time == -1:
+                self.death_time = pygame.time.get_ticks()
+            if self.current_time - self.death_time >= 2000:
+                self.reset()
+                self.death_time = -1
+                self.current_time = -1
+        else:
+            keys = pygame.key.get_pressed()
+            self.player.update(clock)
+            self.frame.update(clock)
+            current_blocks = self.frame.getRelevantBlocks()
+            for block in current_blocks:
+                if Block.isOnTop(self.player, block):
+                    if block.is_spike:
+                        self.is_dead = True
+                    else:
+                        self.player.speed[1] = 0
+                        Block.snapOnTop(self.player, block)
+                    if keys[pygame.K_UP]:
+                        self.player.jump()
+                elif Block.isCollision(self.player, block):
                     self.is_dead = True
-                    #self.reset()
-                self.player.speed[1] = 0
-                Block.snapOnTop(self.player, block)
-                if keys[pygame.K_UP]:
-                    self.player.jump()
-        #elif (self.running_counter >= self.max_counter):
-        #    self.running_counter = 0
-
-        #player.update()
-        #frame.update()
 
     def draw(self, screen):
         #blockmap_copy = self.blockmap.copy()
