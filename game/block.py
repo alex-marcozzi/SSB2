@@ -27,14 +27,17 @@ class Block:
     def bottom(self):
         return self.blockrect.bottom
 
-    def draw(self, screen):
+    def draw(self, screen, fade_pct):
+        #print([col * (1 - fade_pct) for col in self.color])
         if (self.block_type is BlockType.SPIKE):
-             pygame.draw.polygon(screen, self.color,
+             pygame.draw.polygon(screen, 
+                     [col * (1 - fade_pct) for col in self.color],#self.color,
                      [[self.left(), self.bottom()], 
                          [int((self.left() + self.right()) / 2), self.top()],
                          [self.right(), self.bottom()]])
         elif (self.block_type is BlockType.BLOCK):
-            pygame.draw.rect(screen, self.color, self.blockrect)
+            pygame.draw.rect(screen, [col * (1 - fade_pct) for col in self.color],#self.color,
+                    self.blockrect)
 
     @staticmethod
     def isOnTop(block1, block2):

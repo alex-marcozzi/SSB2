@@ -25,7 +25,10 @@ class Engine:
         self.player = Player(pygame.Rect(200, 200, self.block_size,
                 self.block_size), [0, 1], self.player_color) 
         self.death_time   = -1
+        self.end_time     = -1
         self.current_time = -1
+        self.fade_time    = 3000
+        self.fade_pct = 0.0
 
     def loadLevel(self, filepath):
         # initialize the level's block layout
@@ -61,13 +64,13 @@ class Engine:
                             self.block_size, self.block_size * 0.75),
                             self.block_speed,
                             (255, 255, 255), BlockType.SPIKE))
-                #if (character == 'E'):
-                #    line_blocks.append(Block(pygame.Rect(
-                #            self.block_size * (self.frame_length - 1),
-                #            self.frame_height - (self.block_size * i),
-                #            self.block_size, self.block_size),
-                #            self.block_speed,
-                #            self.block_color, BlockType.END))
+                if (character == 'E'):
+                    line_blocks.append(Block(pygame.Rect(
+                            self.block_size * (self.frame_length - 1),
+                            self.frame_height - (self.block_size * i),
+                            self.block_size, self.block_size),
+                            self.block_speed,
+                            self.block_color, BlockType.END))
 
 
 
@@ -79,18 +82,28 @@ class Engine:
                 self.block_size), [0, 1], self.player_color)
         self.frame = Frame(copy.deepcopy(self.blockmap), self.frame_length)
 
-        self.is_dead = False
+        self.is_dead      = False
+        self.level_ended  = False
+        self.death_time   = -1
+        self.end_time     = -1
+        self.current_time = -1
+        self.fade_pct     = 0.0
 
     def update(self, clock):
+        if (self.level_ended):
+            self.current_time = pygame.time.get_ticks()
+            if self.end_time == -1:
+                self.end_time = self.current_time
+            self.fade_pct = (self.current_time - self.end_time) / self.fade_time
+            if self.fade_pct > 1:
+                self.reset()
         # small pause after death before resetting
         if (self.is_dead):
             self.current_time = pygame.time.get_ticks()
             if self.death_time == -1:
                 self.death_time = pygame.time.get_ticks()
             if self.current_time - self.death_time >= 2000:
-                self.reset()
-                self.death_time = -1
-                self.current_time = -1
+                self.reset() 
         else:
             keys = pygame.key.get_pressed()
             self.player.update(clock)
@@ -100,25 +113,24 @@ class Engine:
                 if Block.isOnTop(self.player, block):
                     if block.block_type == BlockType.SPIKE:
                         self.is_dead = True
-                    else:
+                    elif block.block_type == BlockType.BLOCK:
                         self.player.speed[1] = 0
                         Block.snapOnTop(self.player, block)
                     if keys[pygame.K_UP]:
                         self.player.jump()
                 elif Block.isCollision(self.player, block):
-                    #if block.block_type == BlockType.END:
-                    #    self.level_ended = True
-                    #else:
-                    self.is_dead = True
+                    if block.block_type == BlockType.END:
+                        self.level_ended = True
+                    else:
+                        self.is_dead = True
 
     def draw(self, screen):
         #blockmap_copy = self.blockmap.copy()
         #frame = Frame(blockmap_copy, self.frame_length)
 
-        #screen.fill((0, 0, 0))  # maybe shouldn't be here?
         if self.is_dead == False:
-            self.player.draw(screen)
-        self.frame.draw(screen)
+            self.player.draw(screen, self.fade_pct)
+        self.frame.draw(screen, self.fade_pct)
             
     # we need a level engine to keep track of playing a level
     # but we also need an overall engine to handle the menus and stuff

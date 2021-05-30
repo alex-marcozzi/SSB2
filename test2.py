@@ -10,7 +10,7 @@ size = width, height = 800, 600
 flags = pygame.SCALED|pygame.DOUBLEBUF|pygame.HWSURFACE
 screen = pygame.display.set_mode(size, flags)
 
-filepath = "assets/levels/level1.txt"
+filepath = "assets/levels/testlevel.txt"
 engine = Engine(width, height)
 engine.loadLevel(filepath)
 engine.reset()
