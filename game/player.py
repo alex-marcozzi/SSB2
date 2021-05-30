@@ -1,11 +1,12 @@
 from game.block import Block
+from game.blocktype import BlockType
 
 class Player(Block):
     def __init__(self, blockrect, speed, color):
         self.jump_height = 3
         self.max_speed = 2
         self.counter = 0
-        Block.__init__(self, blockrect, speed, color, False)
+        Block.__init__(self, blockrect, speed, color, BlockType.BLOCK)
 
     def update(self, clock):
         Block.update(self, clock)

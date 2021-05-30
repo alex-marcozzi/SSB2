@@ -3,12 +3,14 @@ import copy
 from game.block  import Block
 from game.player import Player
 from game.frame  import Frame
+from game.blocktype import BlockType
 
 class Engine:
     #State = Enum('State', 'home credits playing paused')
     #current_state = State.playing
     def __init__(self, width, height):
         self.is_dead         = False
+        self.level_ended     = False
         self.block_size      = 40#80
         self.block_speed     = [-0.5, 0]
         self.block_color     = (150, 150, 150)
@@ -34,7 +36,7 @@ class Engine:
         for i in range(1, self.frame_length):
             self.blockmap.append([Block(pygame.Rect(self.block_size * i,
                     self.frame_height, self.block_size, self.block_size),
-                    self.block_speed, self.block_color, False)])
+                    self.block_speed, self.block_color, BlockType.BLOCK)])
 
         f = open(filepath, 'r')
         lines = f.readlines()
@@ -51,14 +53,22 @@ class Engine:
                             self.frame_height - (self.block_size * i),
                             self.block_size, self.block_size),
                             self.block_speed,
-                            self.block_color, False))
+                            self.block_color, BlockType.BLOCK))
                 if (character == 'X'):
                     line_blocks.append(Block(pygame.Rect(
                             self.block_size * (self.frame_length - 1),
                             (self.frame_height - (self.block_size * i)) + self.block_size * 0.25,
                             self.block_size, self.block_size * 0.75),
                             self.block_speed,
-                            (255, 255, 255), True))
+                            (255, 255, 255), BlockType.SPIKE))
+                #if (character == 'E'):
+                #    line_blocks.append(Block(pygame.Rect(
+                #            self.block_size * (self.frame_length - 1),
+                #            self.frame_height - (self.block_size * i),
+                #            self.block_size, self.block_size),
+                #            self.block_speed,
+                #            self.block_color, BlockType.END))
+
 
 
             self.blockmap.append(line_blocks)
@@ -88,7 +98,7 @@ class Engine:
             current_blocks = self.frame.getRelevantBlocks()
             for block in current_blocks:
                 if Block.isOnTop(self.player, block):
-                    if block.is_spike:
+                    if block.block_type == BlockType.SPIKE:
                         self.is_dead = True
                     else:
                         self.player.speed[1] = 0
@@ -96,6 +106,9 @@ class Engine:
                     if keys[pygame.K_UP]:
                         self.player.jump()
                 elif Block.isCollision(self.player, block):
+                    #if block.block_type == BlockType.END:
+                    #    self.level_ended = True
+                    #else:
                     self.is_dead = True
 
     def draw(self, screen):
