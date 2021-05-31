@@ -24,10 +24,10 @@ while 1:
         if event.type == pygame.QUIT: sys.exit()
     
     counter += 1
-    #dt = clock.tick(60)
     clock.tick(60)
 
-    engine.update(dt)
+    if (engine.update(dt) == True):
+        print("Win")
 
     screen.fill((0, 0, 0))
     #if (engine.is_dead):

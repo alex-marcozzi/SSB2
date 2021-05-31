@@ -97,6 +97,7 @@ class Engine:
             self.fade_pct = (self.current_time - self.end_time) / self.fade_time
             if self.fade_pct > 1:
                 self.reset()
+                return(True)
         # small pause after death before resetting
         if (self.is_dead):
             self.current_time = pygame.time.get_ticks()
@@ -123,6 +124,7 @@ class Engine:
                         self.level_ended = True
                     else:
                         self.is_dead = True
+        return(False)
 
     def draw(self, screen):
         #blockmap_copy = self.blockmap.copy()
