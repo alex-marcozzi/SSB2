@@ -26,6 +26,7 @@ class Engine:
                 self.block_size), [0, 1], self.player_color) 
         self.death_time   = -1
         self.end_time     = -1
+        self.ground_time  = -1
         self.current_time = -1
         self.fade_time    = 3000
         self.fade_pct = 0.0
@@ -86,6 +87,7 @@ class Engine:
         self.level_ended  = False
         self.death_time   = -1
         self.end_time     = -1
+        self.ground_time  = -1
         self.current_time = -1
         self.fade_pct     = 0.0
 
@@ -115,7 +117,9 @@ class Engine:
                     if block.block_type == BlockType.SPIKE:
                         self.is_dead = True
                     elif block.block_type == BlockType.BLOCK:
+                        self.ground_time = pygame.time.get_ticks()
                         self.player.speed[1] = 0
+                        self.player.resetRotation()
                         Block.snapOnTop(self.player, block)
                     if keys[pygame.K_UP]:
                         self.player.jump()
@@ -124,6 +128,12 @@ class Engine:
                         self.level_ended = True
                     else:
                         self.is_dead = True
+                else:
+                    if pygame.time.get_ticks() - self.ground_time >= 50:
+                        self.player.rotate(-1)
+                    else:
+                        self.player.resetRotation()
+
         return(False)
 
     def draw(self, screen):
