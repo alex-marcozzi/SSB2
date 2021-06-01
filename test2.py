@@ -4,8 +4,8 @@ import os
 os.environ['SDL_AUDIODRIVER'] = 'dsp'
 pygame.init()
 
-size = width, height = 800, 600
-#size = width, height = 1200, 800
+#size = width, height = 800, 600
+size = width, height = 1200, 800
 
 flags = pygame.SCALED|pygame.DOUBLEBUF|pygame.HWSURFACE
 screen = pygame.display.set_mode(size, flags)

@@ -1,4 +1,5 @@
 import pygame
+import pygame.freetype
 import copy
 from game.block  import Block
 from game.player import Player
@@ -9,6 +10,8 @@ class Engine:
     #State = Enum('State', 'home credits playing paused')
     #current_state = State.playing
     def __init__(self, width, height):
+        self.width           = width
+        self.height          = height
         self.is_dead         = False
         self.level_ended     = False
         self.block_size      = 40#80
@@ -30,6 +33,9 @@ class Engine:
         self.current_time = -1
         self.fade_time    = 3000
         self.fade_pct = 0.0
+        self.attempts  = 1
+        self.FONT = pygame.freetype.Font(
+                "assets/fonts/momcake/MomcakeBold-WyonA.ttf", 48)
 
     def loadLevel(self, filepath):
         # initialize the level's block layout
@@ -99,6 +105,7 @@ class Engine:
             self.fade_pct = (self.current_time - self.end_time) / self.fade_time
             if self.fade_pct > 1:
                 self.reset()
+                self.attempts = 1
                 return(True)
         # small pause after death before resetting
         if (self.is_dead):
@@ -106,7 +113,8 @@ class Engine:
             if self.death_time == -1:
                 self.death_time = pygame.time.get_ticks()
             if self.current_time - self.death_time >= 2000:
-                self.reset() 
+                self.reset()
+                self.attempts += 1
         else:
             keys = pygame.key.get_pressed()
             self.player.update(clock)
@@ -143,6 +151,9 @@ class Engine:
         if self.is_dead == False:
             self.player.draw(screen, self.fade_pct)
         self.frame.draw(screen, self.fade_pct)
+        self.FONT.render_to(screen, ((self.width / 2) - 100, self.height / 5), 
+                "Attempt   " + str(self.attempts), [col * (1 - self.fade_pct) 
+                    for col in [100, 100, 100]])#(100, 100, 100))
             
     # we need a level engine to keep track of playing a level
     # but we also need an overall engine to handle the menus and stuff
