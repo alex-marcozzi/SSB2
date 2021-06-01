@@ -1,6 +1,6 @@
 
 1X. implement death by crashing into blocks
-2. add end of level blocks (the capital Es)
+2X. add end of level blocks (the capital Es)
 3. add pausing
 4. add real colors (maybe add this as the first line of the level file?)
 5. add sound effects when you die and stuff

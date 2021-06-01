@@ -130,7 +130,7 @@ class Engine:
                         self.is_dead = True
                 else:
                     if pygame.time.get_ticks() - self.ground_time >= 50:
-                        self.player.rotate(-1)
+                        self.player.rotate(-0.5)
                     else:
                         self.player.resetRotation()
 
