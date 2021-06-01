@@ -36,6 +36,7 @@ class Engine:
         self.attempts  = 1
         self.FONT = pygame.freetype.Font(
                 "assets/fonts/momcake/MomcakeBold-WyonA.ttf", 48)
+        #self.dead_sound = pygame.mixer.Sound("assets/sfx/death.mp3")
 
     def loadLevel(self, filepath):
         # initialize the level's block layout
@@ -124,6 +125,7 @@ class Engine:
                 if Block.isOnTop(self.player, block):
                     if block.block_type == BlockType.SPIKE:
                         self.is_dead = True
+                        pygame.mixer.Sound.play(self.death_sound)
                     elif block.block_type == BlockType.BLOCK:
                         self.ground_time = pygame.time.get_ticks()
                         self.player.speed[1] = 0
@@ -136,6 +138,7 @@ class Engine:
                         self.level_ended = True
                     else:
                         self.is_dead = True
+                        #pygame.mixer.Sound.play(self.death_sound)
                 else:
                     if pygame.time.get_ticks() - self.ground_time >= 50:
                         self.player.rotate(-0.5)

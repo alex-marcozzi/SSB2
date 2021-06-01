@@ -2,7 +2,10 @@ import sys, pygame
 from game.engine import Engine
 import os
 os.environ['SDL_AUDIODRIVER'] = 'dsp'
+#os.putenv('SDL_AUDIODRIVER', 'alsa')
+#os.putenv('SDL_AUDIODEV', '/dev/audio')
 pygame.init()
+#pygame.mixer.init()
 
 #size = width, height = 800, 600
 size = width, height = 1200, 800
