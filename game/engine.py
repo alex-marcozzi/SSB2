@@ -16,7 +16,6 @@ class Engine:
         self.level_ended     = False
         self.block_size      = 40#80
         self.block_speed     = [-0.5, 0]
-        self.block_color     = (150, 150, 150)
         self.running_speed   = 5
         self.running_counter = 0
         self.max_counter     = 5
@@ -24,9 +23,6 @@ class Engine:
         #self.frame_length = 12
         #print(self.frame_length)
         self.frame_height    = height - 100  # number of pixels
-        self.player_color    = (255, 0, 0)
-        self.player = Player(pygame.Rect(200, 200, self.block_size,
-                self.block_size), [0, 1], self.player_color) 
         self.death_time   = -1
         self.end_time     = -1
         self.ground_time  = -1
@@ -36,9 +32,27 @@ class Engine:
         self.attempts  = 1
         self.FONT = pygame.freetype.Font(
                 "assets/fonts/momcake/MomcakeBold-WyonA.ttf", 48)
-        #self.dead_sound = pygame.mixer.Sound("assets/sfx/death.mp3")
+        self.death_sound = pygame.mixer.Sound("assets/sfx/death.mp3")
+    
+    def loadMetaInfo(self, lines):
+        self.background_color = tuple(float(s) for s in lines[0].split(','))
+        self.player_color     = tuple(float(s) for s in lines[1].split(','))
+        self.block_color      = tuple(float(s) for s in lines[2].split(','))
+        self.spike_color      = tuple(float(s) for s in lines[3].split(','))
+        self.player_img       = lines[4][:(len(lines[4])-1)]
+        pygame.mixer.music.load(lines[5][:(len(lines[5])-1)])
 
     def loadLevel(self, filepath):
+        f = open(filepath, 'r')
+        lines = f.readlines()
+        self.loadMetaInfo(lines)
+        #self.background_color = #(0, 250, 255)
+        #self.player_color    = (255, 100, 4)
+        #self.block_color      = (0, 0, 0)
+        #self.spike_color      = (100, 100, 100)
+        #self.player_img       = "assets/images/orange.png"
+        self.player = Player(pygame.Rect(200, 200, self.block_size,
+                self.block_size), [0, 1], self.player_color) 
         # initialize the level's block layout
         self.blockmap = [[Block(pygame.Rect(0, self.frame_height,
                 self.block_size, self.block_size), self.block_speed,
@@ -49,9 +63,8 @@ class Engine:
                     self.frame_height, self.block_size, self.block_size),
                     self.block_speed, self.block_color, BlockType.BLOCK)])
 
-        f = open(filepath, 'r')
-        lines = f.readlines()
-        for line in lines:
+        for l in range(6, len(lines)):
+            line = lines[l]
             line_blocks = []
             for i in range(len(line)):
                 #print(count)
@@ -71,7 +84,7 @@ class Engine:
                             (self.frame_height - (self.block_size * i)) + self.block_size * 0.25,
                             self.block_size, self.block_size * 0.75),
                             self.block_speed,
-                            (255, 255, 255), BlockType.SPIKE))
+                            self.spike_color, BlockType.SPIKE))
                 if (character == 'E'):
                     line_blocks.append(Block(pygame.Rect(
                             self.block_size * (self.frame_length - 1),
@@ -97,6 +110,9 @@ class Engine:
         self.ground_time  = -1
         self.current_time = -1
         self.fade_pct     = 0.0
+
+        pygame.mixer.music.rewind()
+        pygame.mixer.music.play()
 
     def update(self, clock):
         if (self.level_ended):
@@ -126,6 +142,7 @@ class Engine:
                     if block.block_type == BlockType.SPIKE:
                         self.is_dead = True
                         pygame.mixer.Sound.play(self.death_sound)
+                        pygame.mixer.music.stop()
                     elif block.block_type == BlockType.BLOCK:
                         self.ground_time = pygame.time.get_ticks()
                         self.player.speed[1] = 0
@@ -138,7 +155,8 @@ class Engine:
                         self.level_ended = True
                     else:
                         self.is_dead = True
-                        #pygame.mixer.Sound.play(self.death_sound)
+                        pygame.mixer.Sound.play(self.death_sound)
+                        pygame.mixer.music.stop()
                 else:
                     if pygame.time.get_ticks() - self.ground_time >= 50:
                         self.player.rotate(-0.5)
@@ -151,12 +169,13 @@ class Engine:
         #blockmap_copy = self.blockmap.copy()
         #frame = Frame(blockmap_copy, self.frame_length)
 
+        screen.fill([col * (1 - self.fade_pct) for col in self.background_color])#self.background_color)
         if self.is_dead == False:
             self.player.draw(screen, self.fade_pct)
         self.frame.draw(screen, self.fade_pct)
         self.FONT.render_to(screen, ((self.width / 2) - 100, self.height / 5), 
                 "Attempt   " + str(self.attempts), [col * (1 - self.fade_pct) 
-                    for col in [100, 100, 100]])#(100, 100, 100))
+                    for col in self.player_color])
             
     # we need a level engine to keep track of playing a level
     # but we also need an overall engine to handle the menus and stuff

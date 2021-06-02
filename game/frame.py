@@ -18,7 +18,7 @@ class Frame:
     def draw(self, screen, fade_pct):
         for i in range(self.pos, min(self.pos + self.length, len(self.blockmap) - 1)):
             for block in self.blockmap[i]:
-                block.draw(screen, fade_pct)
+                    block.draw(screen, fade_pct)
 
     def getRelevantBlocks(self):
         return list(chain.from_iterable(self.blockmap[self.pos+3:self.pos+int(self.length / 2)]))

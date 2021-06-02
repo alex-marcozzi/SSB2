@@ -10,7 +10,7 @@ class Player(Block):
         self.counter = 0
         #self.image = pygame.image.load("assets/images/square.png")#.convert()
         #self.base_image = self.image.copy()
-        self.base_image = pygame.image.load("assets/images/square.png")#.convert()
+        self.base_image = pygame.image.load("assets/images/orange.png")#.convert()
         Block.__init__(self, blockrect, speed, color, BlockType.BLOCK)
         self.total_angle = 0
 

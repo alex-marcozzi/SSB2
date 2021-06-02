@@ -1,11 +1,11 @@
 import sys, pygame
 from game.engine import Engine
 import os
-os.environ['SDL_AUDIODRIVER'] = 'dsp'
+#os.environ['SDL_AUDIODRIVER'] = 'dsp'
 #os.putenv('SDL_AUDIODRIVER', 'alsa')
 #os.putenv('SDL_AUDIODEV', '/dev/audio')
 pygame.init()
-#pygame.mixer.init()
+pygame.mixer.init()
 
 #size = width, height = 800, 600
 size = width, height = 1200, 800
@@ -13,7 +13,7 @@ size = width, height = 1200, 800
 flags = pygame.SCALED|pygame.DOUBLEBUF|pygame.HWSURFACE
 screen = pygame.display.set_mode(size, flags)
 
-filepath = "assets/levels/testlevel.txt"
+filepath = "assets/levels/level1.txt"
 engine = Engine(width, height)
 engine.loadLevel(filepath)
 engine.reset()
