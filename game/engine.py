@@ -114,7 +114,7 @@ class Engine:
         pygame.mixer.music.rewind()
         pygame.mixer.music.play()
 
-    def update(self, dt, keys):
+    def update(self, dt):
         if (self.level_ended):
             self.current_time = pygame.time.get_ticks()
             if self.end_time == -1:
@@ -133,7 +133,7 @@ class Engine:
                 self.reset()
                 self.attempts += 1
         else:
-            #keys = pygame.key.get_pressed()
+            keys = pygame.key.get_pressed()
             self.player.update(dt)
             self.frame.update(dt)
             current_blocks = self.frame.getRelevantBlocks()
