@@ -2,7 +2,7 @@
 1X. implement death by crashing into blocks
 2X. add end of level blocks (the capital Es)
 3. add pausing
-4. add real colors (maybe add this as the first line of the level file?)
-5. add sound effects when you die and stuff
+4X. add real colors (maybe add this as the first line of the level file?)
+5X. add sound effects when you die and stuff
 6. make the class for munus (MenuHandler? StateHandler? StateEngine?)
 7. screens you will need: main, credits, level_select, playing, paused

@@ -7,16 +7,16 @@ class Frame:
         self.blockmap = blockmap
         self.length = length
 
-    def update(self, clock):
-        for i in range(self.pos, min(self.pos + self.length, len(self.blockmap) - 1)):
+    def update(self, dt):
+        for i in range(self.pos, min(self.pos + self.length, len(self.blockmap))):
             for block in self.blockmap[i]:
-                block.update(clock)
+                block.update(dt)
 
         if (self.blockmap[self.pos][0].right() <= 0):
             self.pos += 1
 
     def draw(self, screen, fade_pct):
-        for i in range(self.pos, min(self.pos + self.length, len(self.blockmap) - 1)):
+        for i in range(self.pos, min(self.pos + self.length, len(self.blockmap))):
             for block in self.blockmap[i]:
                     block.draw(screen, fade_pct)
 

@@ -19,7 +19,7 @@ class Engine:
         self.running_speed   = 5
         self.running_counter = 0
         self.max_counter     = 5
-        self.frame_length    = int(width / self.block_size) + 2  # number of squares
+        self.frame_length    = int(width / self.block_size) + 1  # number of squares
         #self.frame_length = 12
         #print(self.frame_length)
         self.frame_height    = height - 100  # number of pixels
@@ -114,7 +114,7 @@ class Engine:
         pygame.mixer.music.rewind()
         pygame.mixer.music.play()
 
-    def update(self, clock):
+    def update(self, dt, keys):
         if (self.level_ended):
             self.current_time = pygame.time.get_ticks()
             if self.end_time == -1:
@@ -133,9 +133,9 @@ class Engine:
                 self.reset()
                 self.attempts += 1
         else:
-            keys = pygame.key.get_pressed()
-            self.player.update(clock)
-            self.frame.update(clock)
+            #keys = pygame.key.get_pressed()
+            self.player.update(dt)
+            self.frame.update(dt)
             current_blocks = self.frame.getRelevantBlocks()
             for block in current_blocks:
                 if Block.isOnTop(self.player, block):
@@ -176,6 +176,3 @@ class Engine:
         self.FONT.render_to(screen, ((self.width / 2) - 100, self.height / 5), 
                 "Attempt   " + str(self.attempts), [col * (1 - self.fade_pct) 
                     for col in self.player_color])
-            
-    # we need a level engine to keep track of playing a level
-    # but we also need an overall engine to handle the menus and stuff

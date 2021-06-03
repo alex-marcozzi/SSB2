@@ -28,8 +28,9 @@ while 1:
     
     counter += 1
     clock.tick(60)
+    keys = pygame.key.get_pressed()
 
-    if (engine.update(dt) == True):
+    if (engine.update(dt, keys) == True):
         print("Win")
 
     screen.fill((0, 0, 0))
