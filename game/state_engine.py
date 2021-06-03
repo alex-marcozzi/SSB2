@@ -5,7 +5,6 @@ from enum import Enum
 from game.engine import Engine
 
 # the different usable states
-
 class State(Enum):
     MAIN         = 1
     CREDITS      = 2
