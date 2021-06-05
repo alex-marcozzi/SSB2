@@ -46,17 +46,12 @@ class Engine:
         f = open(filepath, 'r')
         lines = f.readlines()
         self.loadMetaInfo(lines)
-        #self.background_color = #(0, 250, 255)
-        #self.player_color    = (255, 100, 4)
-        #self.block_color      = (0, 0, 0)
-        #self.spike_color      = (100, 100, 100)
-        #self.player_img       = "assets/images/orange.png"
         self.player = Player(pygame.Rect(200, 200, self.block_size,
                 self.block_size), [0, 1], self.player_color) 
         # initialize the level's block layout
         self.blockmap = [[Block(pygame.Rect(0, self.frame_height,
                 self.block_size, self.block_size), self.block_speed,
-                self.block_color, False)]]
+                self.block_color, BlockType.BLOCK)]]
 
         for i in range(1, self.frame_length):
             self.blockmap.append([Block(pygame.Rect(self.block_size * i,
