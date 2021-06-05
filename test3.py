@@ -4,7 +4,7 @@ pygame.init()
 pygame.mixer.init()
 
 #size = width, height = 800, 600
-size = width, height = 1200, 800
+size = width, height = 1200, 700
 
 flags = pygame.SCALED|pygame.DOUBLEBUF|pygame.HWSURFACE
 screen = pygame.display.set_mode(size, flags)

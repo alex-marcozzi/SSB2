@@ -42,18 +42,14 @@ class StateEngine:
             self.updatePaused(events)
     
     def updateMain(self, events):
-        #print("there")
         for event in events:
-            #print("for")
             if event.type == pygame.KEYDOWN:
-                #print("gah")
                 if event.key == pygame.K_1:
                     self.state = State.LEVEL_SELECT
-                    #print("hi")
                 elif event.key == pygame.K_2:
                     self.state = State.CREDITS
                 elif event.key == pygame.K_3:
-                    print("Quit?")
+                    pygame.event.post(pygame.event.Event(pygame.QUIT))
 
     def updateLevelSelect(self, events):
         for event in events:
@@ -113,25 +109,22 @@ class StateEngine:
     
     def drawMain(self, screen):
         screen.fill(self.background_color)
-        #self.TITLE_FONT.render_to(screen, ((self.width / 2) - 250, self.height / 5), 
-                #"Super Square Boy", self.font_color)
-        #text = "Super Square Bui"
-        #text_rect = self.TITLE_FONT.get_rect(text, size = 50)
-        #text_rect.center = (self.width / 2, self.height / 2)#screen.get_rect().center 
-        #self.TITLE_FONT.render_to(screen, text_rect, text, (0,0,0), size = 50) 
         self.drawTextXCenter(screen, "Super Square Boy", self.font_color, 100, self.height / 5)
+        self.drawTextXCenter(screen, "1) Level Select", self.font_color, 70, self.height / 2)
+        self.drawTextXCenter(screen, "2) Credits", self.font_color, 70, self.height / 2 + 100)
+        self.drawTextXCenter(screen, "3) Exit Game", self.font_color, 70, self.height / 2 + 200)
     
     def drawLevelSelect(self, screen):
         screen.fill(self.background_color)
         self.drawTextXCenter(screen, "Level Select", self.font_color, 100, self.height / 5)
-        #self.FONT.render_to(screen, ((self.width / 2) - 250, self.height / 5), 
-        #        "Level Select", self.font_color)
+        self.drawTextXCenter(screen, "1) RPM", self.font_color, 50, self.height / 2 - 75)
+        self.drawTextXCenter(screen, "2) Deep Blue", self.font_color, 50, self.height / 2)
+        self.drawTextXCenter(screen, "3) Luminous", self.font_color, 50, self.height / 2 + 75)
+        self.drawTextXCenter(screen, "4) Spectre", self.font_color, 50, self.height / 2 + 150)
     
     def drawCredits(self, screen):
         screen.fill(self.background_color)
         self.drawTextXCenter(screen, "Credits", self.font_color, 100, self.height / 5)
-        #self.FONT.render_to(screen, ((self.width / 2) - 250, self.height / 5), 
-        #        "Credits", self.font_color)
 
     def drawPlaying(self, screen):
         screen.fill(self.background_color)
@@ -139,11 +132,13 @@ class StateEngine:
 
     def drawPaused(self, screen):
         screen.fill(self.background_color)
-        self.drawTextXCenter(screen, "Paused", self.font_color, 100, self.height / 5)
+        self.drawTextXCenter(screen, "Paused", self.font_color, 200, self.height / 5)
+        self.drawTextXCenter(screen, "1) Resume", self.font_color, 70, self.height / 2)
+        self.drawTextXCenter(screen, "2) Main Menu", self.font_color, 70, self.height / 2 + 100)
         #self.FONT.render_to(screen, ((self.width / 2) - 250, self.height / 5), 
         #        "Paused", self.font_color)
     
     def drawTextXCenter(self, screen, text, color, size, y):
         text_rect = self.FONT.get_rect(text, size = size)
         text_rect.center = (self.width / 2, y)
-        self.FONT.render_to(screen, text_rect, text, color, size = size) 
+        self.FONT.render_to(screen, text_rect, text, color, size = size)

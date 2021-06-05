@@ -15,7 +15,7 @@ class Engine:
         self.is_dead         = False
         self.level_ended     = False
         self.block_size      = 40#80
-        self.block_speed     = [-0.5, 0]
+        self.block_speed     = [-0.50, 0]
         self.running_speed   = 5
         self.running_counter = 0
         self.max_counter     = 5
