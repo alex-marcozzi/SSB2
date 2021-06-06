@@ -130,6 +130,7 @@ class StateEngine:
         self.drawTextXCenter(screen, "2) Deep Blue", self.font_color, 50, self.height / 2)
         self.drawTextXCenter(screen, "3) Luminous", self.font_color, 50, self.height / 2 + 75)
         self.drawTextXCenter(screen, "4) Spectre", self.font_color, 50, self.height / 2 + 150)
+        self.drawBackButton(screen)
     
     def drawCredits(self, screen):
         screen.fill(self.background_color)
@@ -143,6 +144,7 @@ class StateEngine:
         self.drawTextXCenter(screen, "Level 2: \"Deep Blue\" by K-391", self.font_color, 50, self.height / 2 + 100)
         self.drawTextXCenter(screen, "Level 3: \"Luminous\" by Lensko", self.font_color, 50, self.height / 2 + 150)
         self.drawTextXCenter(screen, "Level 4 \"Spectre\" by Alan Walker", self.font_color, 50, self.height / 2 + 200)
+        self.drawBackButton(screen)
     
 
     def drawPlaying(self, screen):
@@ -163,3 +165,8 @@ class StateEngine:
         text_rect.center = (self.width / 2, y)
         self.FONT.render_to(screen, text_rect, text, color, size = size)
         self.FONT.underline = False
+    
+    def drawBackButton(self, screen):
+        text_rect = self.FONT.get_rect("ESC: Back", size = 30)
+        text_rect.center = (self.width / 10, 9 * self.height / 10)
+        self.FONT.render_to(screen, text_rect, "ESC: Back", self.font_color, size = 30)
