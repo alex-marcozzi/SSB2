@@ -94,10 +94,6 @@ O
 O
 O
 O
-O
-O
-O
-O
 OX
 OX
 O
@@ -160,12 +156,8 @@ OX      O
 OX      O
 OX      O
 OX      O
-OX      O
-OX      O
 OX      OX
 OX      OX
-OX      O
-OX      O
 OX      O
 OX      O
 OX      O
@@ -194,12 +186,8 @@ OX        O
 OX        O
 OX        O
 OX        O
-OX        O
-OX        O
 OX        OX
 OX        OX
-OX        O
-OX        O
 OX        O
 OX        O
 OX        O
@@ -273,12 +261,6 @@ OO
 OX
 OX
 OX
-OX
-O
-O
-O
-O
-O
 O
 O
 O
@@ -321,13 +303,10 @@ O
 O
 O
 O
-O
-O
-O
-O
-O
-O
 OX
+OX
+OX
+OX O
 OX
 OX
 O
@@ -340,14 +319,7 @@ O
 OX
 OX
 OX
-O
-O
-O
-O
-O
-O
-O
-OX
+OX O
 OX
 OX
 O
@@ -357,6 +329,8 @@ O
 O
 O
 O
+OX  O
+OX  O
 OX
 OX
 OX
@@ -368,12 +342,12 @@ O
 O
 O
 O
+OX  O
+OX  O
 OX
 OX
 OX
 OX
-O
-O
 O
 O
 O
@@ -420,12 +394,80 @@ OX
 OX
 OX
 OX
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OX
+OX
+OX
+OO
+OX
+OX
+OX  O
+OX
+OX
+OX     O
+OX
+OX
+OX        O
+OX        O
+OX
+OX
+OX
+OX
 OX
 O
 O
 O
 O
 O
+O
+O
+O
+O
+OX
+OX
+OX
+OO
+OX
+OX
+OX  O
+OX
+OX
+OX     O
+OX
+OX
+OX        O
+OX        O
+OX
+OX
+OX     O
+OX     O
+OX
+OX
+OX  O
+OX
+OX
+OX
+OX
+OX
+OX  O
+OX
+OX
+OX     O
+OX
+OX
+OX        O
+OX
+OX
+OX
+OX
 O
 O
 O
@@ -454,65 +496,6 @@ OX
 OX
 OX
 OX
-OX
-OX
-OX
-OX
-OX
-OX
-OX
-O
-O
-O
-O
-O
-O
-O
-O
-O
-OX
-OX
-OX
-OO
-OX
-OX
-OX  O
-OX
-OX
-OX     O
-OX
-OX
-OX        O
-OX
-OX
-OX
-OX     O
-OX
-OX
-OX
-OX  O
-OX
-OX
-OX
-OX
-OX
-OX  O
-OX
-OX
-OX     O
-OX
-OX
-OX        O
-OX
-OX
-OX
-OX
-OX
-OX
-O
-O
-O
-O
 O
 O
 O
@@ -529,70 +512,6 @@ OX
 OX
 OX
 OO
-OX
-OX
-OX  O
-OX
-OX
-OX     O
-OX
-OX
-OX        O
-OX
-OX
-OX
-OX
-OX
-OX
-OX
-OX
-OX
-OX
-OX
-OX
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-OX
-OX
-OX
-O
-O
-O
-O
-O
-O
-O
-O
-O
-OX
-OX
-OX
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
 O
 O
 O
@@ -602,29 +521,8 @@ OX
 OX
 O
 O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
+OX
+OX
 O
 O
 O

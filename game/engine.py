@@ -114,10 +114,8 @@ class Engine:
             if self.end_time == -1:
                 self.end_time = self.current_time
             self.fade_pct = (self.current_time - self.end_time) / self.fade_time
-            #if self.fade_pct > 1:
-            #    self.reset()
-            #    self.attempts = 1
-            #    return(True)
+        if (self.fade_pct >= 1):
+            return
         # small pause after death before resetting
         if (self.is_dead):
             self.current_time = pygame.time.get_ticks()

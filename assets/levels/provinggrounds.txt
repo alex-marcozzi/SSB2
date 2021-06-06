@@ -1,0 +1,265 @@
+0,250,255
+255,100,4
+0,0,0
+100,100,100
+assets/images/orange.png
+assets/music/music1.mp3
+O
+O
+O
+OOO
+OOO
+OOO
+OOO
+OOO
+OX
+OX
+OX
+OX  O
+OX  O
+OX  O
+OX
+OX
+OX
+OX    O
+OX    O
+OX    O
+OX
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      OX
+OX      OX
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX      O
+OX
+OX        O
+OX        O
+OX        O OX
+OX          OX
+OX
+OX      O
+OX      O
+OX      O
+OX
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        OX
+OX        OX
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX
+OX
+OX
+OX
+OX        O
+OX        O
+OX
+OX
+OX
+OX
+OX        O
+OX        O
+OX
+OX
+OX
+OX
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        OX
+OX        OX
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        OX
+OX        OX
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX         O
+OX
+OX
+OX       O
+OX
+OX
+OX     O
+OX
+OX
+OX
+OX  O
+OX
+OX
+OO
+OO
+OO
+OO
+OO
+OO
+OX
+OX
+OX
+O
+O
+OEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O

@@ -58,6 +58,7 @@ class StateEngine:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_1:
                     self.state = State.PLAYING
+                    #self.engine.loadLevel("assets/levels/level1.txt")
                     self.engine.loadLevel("assets/levels/level1.txt")
                     self.engine.reset()
                 elif event.key == pygame.K_2:
@@ -75,6 +76,10 @@ class StateEngine:
                 elif event.key == pygame.K_5:
                     self.state = State.PLAYING
                     self.engine.loadLevel("assets/levels/testlevel.txt")
+                    self.engine.reset()
+                elif event.key == pygame.K_6:
+                    self.state = State.PLAYING
+                    self.engine.loadLevel("assets/levels/provinggrounds.txt")
                     self.engine.reset()
                 elif event.key == pygame.K_ESCAPE:
                     self.state = State.MAIN
