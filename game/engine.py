@@ -27,7 +27,7 @@ class Engine:
         self.end_time     = -1
         self.ground_time  = -1
         self.current_time = -1
-        self.fade_time    = 3000
+        self.fade_time    = 6150
         self.fade_pct = 0.0
         self.attempts  = 1
         self.FONT = pygame.freetype.Font(
@@ -114,10 +114,10 @@ class Engine:
             if self.end_time == -1:
                 self.end_time = self.current_time
             self.fade_pct = (self.current_time - self.end_time) / self.fade_time
-            if self.fade_pct > 1:
-                self.reset()
-                self.attempts = 1
-                return(True)
+            #if self.fade_pct > 1:
+            #    self.reset()
+            #    self.attempts = 1
+            #    return(True)
         # small pause after death before resetting
         if (self.is_dead):
             self.current_time = pygame.time.get_ticks()
@@ -149,6 +149,8 @@ class Engine:
                 elif Block.isCollision(self.player, block):
                     if block.block_type == BlockType.END:
                         self.level_ended = True
+                        pygame.mixer.music.load("assets/music/end.mp3")
+                        pygame.mixer.music.play()
                     else:
                         self.is_dead = True
                         pygame.mixer.Sound.play(self.death_sound)
@@ -170,10 +172,20 @@ class Engine:
         #blockmap_copy = self.blockmap.copy()
         #frame = Frame(blockmap_copy, self.frame_length)
 
-        screen.fill([col * (1 - self.fade_pct) for col in self.background_color])#self.background_color)
-        if self.is_dead == False:
-            self.player.draw(screen, self.fade_pct)
-        self.frame.draw(screen, self.fade_pct)
-        self.FONT.render_to(screen, ((self.width / 2) - 100, self.height / 5), 
-                "Attempt   " + str(self.attempts), [col * (1 - self.fade_pct) 
-                    for col in self.player_color])
+        # change this, it shouldn't be player color it should be font color
+        if self.fade_pct >= 1:
+                screen.fill((0,0,0))
+                self.drawTextXCenter(screen, "Level Complete", self.player_color, 100, self.height / 2)
+        else:
+            screen.fill([col * (1 - self.fade_pct) for col in self.background_color])#self.background_color)
+            if self.is_dead == False:
+                self.player.draw(screen, self.fade_pct)
+            self.frame.draw(screen, self.fade_pct)
+            self.FONT.render_to(screen, ((self.width / 2) - 100, self.height / 5), 
+                    "Attempt   " + str(self.attempts), [col * (1 - self.fade_pct) 
+                        for col in self.player_color])
+    
+    def drawTextXCenter(self, screen, text, color, size, y):
+        text_rect = self.FONT.get_rect(text, size = size)
+        text_rect.center = (self.width / 2, y)
+        self.FONT.render_to(screen, text_rect, text, color, size = size)

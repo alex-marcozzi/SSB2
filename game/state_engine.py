@@ -70,6 +70,10 @@ class StateEngine:
                     self.state = State.PLAYING
                     self.engine.loadLevel("assets/levels/level4.txt")
                     self.engine.reset()
+                elif event.key == pygame.K_5:
+                    self.state = State.PLAYING
+                    self.engine.loadLevel("assets/levels/testlevel.txt")
+                    self.engine.reset()
     
     def updateCredits(self, events):
         for event in events:
@@ -128,7 +132,7 @@ class StateEngine:
         self.drawTextXCenter(screen, "email: alex.marcozzi1_gmail.com", self.font_color, 30, self.height / 6 + 100)
         self.drawTextXCenter(screen, "github: github.com/alex-marcozzi", self.font_color, 30, self.height / 6 + 125)
         self.drawTextXCenter(screen, "Music", self.font_color, 70, self.height / 2 - 50)
-        self.drawTextXCenter(screen, "Main Menu: \"Away with the Fairies\" by Philanthrope", self.font_color, 30, self.height / 2)
+        self.drawTextXCenter(screen, "Main Menu: \"Away with the Fairies\" by Philanthrope", self.font_color, 50, self.height / 2)
         self.drawTextXCenter(screen, "Level 1: \"RPM\" by env", self.font_color, 50, self.height / 2 + 50)
         self.drawTextXCenter(screen, "Level 2: \"Deep Blue\" by K-391", self.font_color, 50, self.height / 2 + 100)
         self.drawTextXCenter(screen, "Level 3: \"Luminous\" by Lensko", self.font_color, 50, self.height / 2 + 150)
