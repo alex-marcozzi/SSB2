@@ -6,4 +6,6 @@
 5X. add sound effects when you die and stuff
 6X. make the class for munus (MenuHandler? StateHandler? StateEngine?)
 7X. screens you will need: main, credits, level_select, playing, paused
-8.  add buttons to the menu
+8X. add buttons to the menu
+9X.  add credits screen
+10. add menu music
