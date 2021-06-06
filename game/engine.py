@@ -39,15 +39,15 @@ class Engine:
         self.player_color     = tuple(float(s) for s in lines[1].split(','))
         self.block_color      = tuple(float(s) for s in lines[2].split(','))
         self.spike_color      = tuple(float(s) for s in lines[3].split(','))
-        self.player_img       = lines[4][:(len(lines[4])-1)]
-        pygame.mixer.music.load(lines[5][:(len(lines[5])-1)])
+        self.player_img       = str(lines[4][:(len(lines[4])-1)])
+        pygame.mixer.music.load(str(lines[5][:(len(lines[5])-1)]))
 
     def loadLevel(self, filepath):
         f = open(filepath, 'r')
         lines = f.readlines()
         self.loadMetaInfo(lines)
         self.player = Player(pygame.Rect(200, 200, self.block_size,
-                self.block_size), [0, 1], self.player_color) 
+                self.block_size), [0, 1], self.player_img)#self.player_color) 
         # initialize the level's block layout
         self.blockmap = [[Block(pygame.Rect(0, self.frame_height,
                 self.block_size, self.block_size), self.block_speed,
@@ -88,14 +88,13 @@ class Engine:
                             self.block_speed,
                             self.block_color, BlockType.END))
 
-
-
             self.blockmap.append(line_blocks)
+            self.attempts = 1
 
     def reset(self):
         #self.loadLevel("assets/levels/level1.txt")
         self.player = Player(pygame.Rect(200, 200, self.block_size,
-                self.block_size), [0, 1], self.player_color)
+                self.block_size), [0, 1], self.player_img)
         self.frame = Frame(copy.deepcopy(self.blockmap), self.frame_length)
 
         self.is_dead      = False

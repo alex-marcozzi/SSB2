@@ -4,14 +4,12 @@ from game.block import Block
 from game.blocktype import BlockType
 
 class Player(Block):
-    def __init__(self, blockrect, speed, color):
+    def __init__(self, blockrect, speed, image_path):
         self.jump_height = 3
         self.max_speed = 2
         self.counter = 0
-        #self.image = pygame.image.load("assets/images/square.png")#.convert()
-        #self.base_image = self.image.copy()
-        self.base_image = pygame.image.load("assets/images/orange.png")#.convert()
-        Block.__init__(self, blockrect, speed, color, BlockType.BLOCK)
+        self.base_image = pygame.image.load(image_path)#"assets/images/orange.png")
+        Block.__init__(self, blockrect, speed, (0,0,0), BlockType.BLOCK)
         self.total_angle = 0
 
     def update(self, clock):
