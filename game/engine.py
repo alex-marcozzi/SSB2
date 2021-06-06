@@ -131,6 +131,7 @@ class Engine:
             self.player.update(dt)
             self.frame.update(dt)
             current_blocks = self.frame.getRelevantBlocks()
+            grounded = False
             for block in current_blocks:
                 if Block.isOnTop(self.player, block):
                     if block.block_type == BlockType.SPIKE:
@@ -138,6 +139,7 @@ class Engine:
                         pygame.mixer.Sound.play(self.death_sound)
                         pygame.mixer.music.stop()
                     elif block.block_type == BlockType.BLOCK:
+                        grounded = True
                         self.ground_time = pygame.time.get_ticks()
                         self.player.speed[1] = 0
                         self.player.resetRotation()
@@ -151,11 +153,16 @@ class Engine:
                         self.is_dead = True
                         pygame.mixer.Sound.play(self.death_sound)
                         pygame.mixer.music.stop()
+                #else:
+                #    if pygame.time.get_ticks() - self.ground_time >= 50:
+                #        self.player.rotate(-0.5)
+                #    else:
+                #        self.player.resetRotation()
+            if not grounded:
+                if pygame.time.get_ticks() - self.ground_time >= 50:
+                    self.player.rotate(-5)
                 else:
-                    if pygame.time.get_ticks() - self.ground_time >= 50:
-                        self.player.rotate(-0.5)
-                    else:
-                        self.player.resetRotation()
+                    self.player.resetRotation()
 
         return(False)
 

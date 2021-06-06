@@ -246,7 +246,6 @@ OX
 OX
 OX
 OX
-OX
 OX        O
 OX        O
 OX

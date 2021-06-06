@@ -7,7 +7,6 @@ class Player(Block):
     def __init__(self, blockrect, speed, image_path):
         self.jump_height = 3
         self.max_speed = 2
-        self.counter = 0
         self.base_image = pygame.image.load(image_path)#"assets/images/orange.png")
         Block.__init__(self, blockrect, speed, (0,0,0), BlockType.BLOCK)
         self.total_angle = 0
@@ -22,10 +21,8 @@ class Player(Block):
 
     def resetRotation(self):
         self.total_angle = 0
-        #self.image = self.base_image.copy()
 
     def draw(self, screen, fade_pct):
-        #self.image = pygame.transform.rotate(self.base_image, self.total_angle)
         image = pygame.transform.rotate(self.base_image, self.total_angle)
         new_rect = image.get_rect(center = self.blockrect.center)
         image.set_alpha(255 * (1 - fade_pct))

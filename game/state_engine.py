@@ -78,7 +78,6 @@ class StateEngine:
                     self.state = State.MAIN
     
     def updatePlaying(self, events):
-        #print(self.dt)
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
