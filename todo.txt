@@ -8,7 +8,7 @@
 7X. screens you will need: main, credits, level_select, playing, paused
 8X. add buttons to the menu
 9X. add credits screen
-10. add menu music
+10X. add menu music
 11. add back buttons for all menus
 12. add pause animation (maybe?)
 13. add death animation (maybe?)

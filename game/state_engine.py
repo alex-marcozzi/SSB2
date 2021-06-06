@@ -25,6 +25,8 @@ class StateEngine:
                 "assets/fonts/momcake/MomcakeBold-WyonA.ttf", 24)
         self.background_color = (0, 250, 255)
         self.font_color       = (255, 100, 4)
+        pygame.mixer.music.load("assets/music/menu.mp3")
+        pygame.mixer.music.play()
 
     def update(self, events):
         #keys = pygame.key.get_pressed()
@@ -74,11 +76,13 @@ class StateEngine:
                     self.state = State.PLAYING
                     self.engine.loadLevel("assets/levels/testlevel.txt")
                     self.engine.reset()
+                elif event.key == pygame.K_ESCAPE:
+                    self.state = State.MAIN
     
     def updateCredits(self, events):
         for event in events:
             if event.type == pygame.KEYDOWN:
-                if keys[K_ESCAPE]:
+                if event.key == pygame.K_ESCAPE:
                     self.state = State.MAIN
     
     def updatePlaying(self, events):
@@ -97,6 +101,8 @@ class StateEngine:
                     pygame.mixer.music.unpause()
                 elif event.key == pygame.K_2:
                     self.state = State.MAIN
+                    pygame.mixer.music.load("assets/music/menu.mp3")
+                    pygame.mixer.music.play()
 
     def draw(self, screen):
         if self.state   == State.MAIN:
@@ -112,14 +118,14 @@ class StateEngine:
     
     def drawMain(self, screen):
         screen.fill(self.background_color)
-        self.drawTextXCenter(screen, "Super Square Boy", self.font_color, 100, self.height / 6)
+        self.drawTextXCenter(screen, "Super Square Boy", self.font_color, 100, self.height / 6, True)
         self.drawTextXCenter(screen, "1) Level Select", self.font_color, 70, self.height / 2)
         self.drawTextXCenter(screen, "2) Credits", self.font_color, 70, self.height / 2 + 100)
         self.drawTextXCenter(screen, "3) Exit Game", self.font_color, 70, self.height / 2 + 200)
     
     def drawLevelSelect(self, screen):
         screen.fill(self.background_color)
-        self.drawTextXCenter(screen, "Level Select", self.font_color, 100, self.height / 6)
+        self.drawTextXCenter(screen, "Level Select", self.font_color, 100, self.height / 6, True)
         self.drawTextXCenter(screen, "1) RPM", self.font_color, 50, self.height / 2 - 75)
         self.drawTextXCenter(screen, "2) Deep Blue", self.font_color, 50, self.height / 2)
         self.drawTextXCenter(screen, "3) Luminous", self.font_color, 50, self.height / 2 + 75)
@@ -127,7 +133,7 @@ class StateEngine:
     
     def drawCredits(self, screen):
         screen.fill(self.background_color)
-        self.drawTextXCenter(screen, "Credits", self.font_color, 120, self.height / 6)
+        self.drawTextXCenter(screen, "Credits", self.font_color, 120, self.height / 6, True)
         self.drawTextXCenter(screen, "Created by Alexander Marcozzi", self.font_color, 30, self.height / 6 + 75)
         self.drawTextXCenter(screen, "email: alex.marcozzi1_gmail.com", self.font_color, 30, self.height / 6 + 100)
         self.drawTextXCenter(screen, "github: github.com/alex-marcozzi", self.font_color, 30, self.height / 6 + 125)
@@ -145,13 +151,15 @@ class StateEngine:
 
     def drawPaused(self, screen):
         screen.fill(self.background_color)
-        self.drawTextXCenter(screen, "Paused", self.font_color, 200, self.height / 6)
+        self.drawTextXCenter(screen, "Paused", self.font_color, 200, self.height / 6, True)
         self.drawTextXCenter(screen, "1) Resume", self.font_color, 70, self.height / 2)
         self.drawTextXCenter(screen, "2) Main Menu", self.font_color, 70, self.height / 2 + 100)
         #self.FONT.render_to(screen, ((self.width / 2) - 250, self.height / 5), 
         #        "Paused", self.font_color)
     
-    def drawTextXCenter(self, screen, text, color, size, y):
+    def drawTextXCenter(self, screen, text, color, size, y, underline = False):
+        self.FONT.underline = underline
         text_rect = self.FONT.get_rect(text, size = size)
         text_rect.center = (self.width / 2, y)
         self.FONT.render_to(screen, text_rect, text, color, size = size)
+        self.FONT.underline = False
