@@ -171,13 +171,13 @@ OX    O
 OX    O
 OX    O
 OX    O
-OX    O
 OX    OX
 OX    OX
 OX    O
 OX    O
 OX    OX
 OX    OX
+OX    O
 OX    O
 OX    O
 OX    O
@@ -292,6 +292,15 @@ OX        O
 OX        O
 OX        OX
 OX        OX
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        O
+OX        OX
 OX        OX
 OX        O
 OX        O
@@ -300,16 +309,7 @@ OX        O
 OX        O
 OX        O
 OX        O
-OX        OX
-OX        OX
-OX        OX
 OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        OX
 OX        OX
 OX
 OX
@@ -354,49 +354,14 @@ OX         O
 OX         O
 OX         OX
 OX         OX
-OX         OX
+OX         O
+OX         O
 OX         O
 OX         O
 OX
 OX
 OX
 OX
-OX
-OX
-OX
-OX
-OX
-OX
-OX
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-OX
-OX
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
 O
 O
 O
@@ -411,7 +376,6 @@ O
 O
 OX
 OX
-OX
 O
 O
 O
@@ -427,15 +391,6 @@ O
 O
 O
 O
-O
-O
-O
-O
-O
-O
-O
-O
-OX
 OX
 OX
 OOO
@@ -448,9 +403,7 @@ OX
 OX
 OX
 OX
-OX
 OOOO
-OX
 OX
 OX
 OX
@@ -493,7 +446,6 @@ OX
 OX
 OX
 OOOOOOOOOOOO
-OX
 OX
 OX
 OX
@@ -512,7 +464,6 @@ OX
 OX
 OX
 OX
-OX
 OOOOOOOOOOOO
 OX
 OX
@@ -529,144 +480,8 @@ OOOO
 OX
 OX
 OX
-OX
-OX
-OX
-OX
 O
 O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-OX
-OX
-OX
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-O
-OOO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OOX
-OOX
-OO
-OO
-OO
-OO
-OO
-OO
-OOX
-OOX
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OOOO
-OOOO
-OOOO
-OOOO
-OOOOOO
-OOOOOO
-OOOOOO
-OOOOOO
-OOOOOOX
-OOOOOOX
-OOOOOOX
-OOOOOX
-OOOOX
-OOOX
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OOOO
-OOOO
-OOOO
-OOOO
-OOOOOO
-OOOOOO
-OOOOOO
-OOOOOO
-OOOOOOX
-OOOOOOX
-OOOOOOX
-OOOOOX
-OOOOX
-OOOX
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
-OO
 OEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 O
 O

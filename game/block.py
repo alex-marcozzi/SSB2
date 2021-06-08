@@ -11,7 +11,6 @@ class Block:
         self.block_type = block_type
 
     def update(self, dt):
-        #print(dt)
         self.blockrect = self.blockrect.move([int(self.speed[0] * dt), 
             int(self.speed[1] * dt)])
 

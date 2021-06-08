@@ -361,7 +361,7 @@ OO
 OX
 OX
 OX
-OX
+O
 O
 O
 O
@@ -377,7 +377,7 @@ OO
 OX
 OX
 OX
-OX
+O
 O
 O
 O
@@ -393,7 +393,7 @@ OOO
 OX
 OX
 OX
-OX
+O
 O
 O
 O

@@ -75,7 +75,7 @@ class StateEngine:
                     self.engine.reset()
                 elif event.key == pygame.K_5:
                     self.state = State.PLAYING
-                    self.engine.loadLevel("assets/levels/testlevel.txt")
+                    self.engine.loadLevel("assets/levels/testlevel1.txt")
                     self.engine.reset()
                 elif event.key == pygame.K_6:
                     self.state = State.PLAYING

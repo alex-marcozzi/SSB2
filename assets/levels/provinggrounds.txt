@@ -1,153 +1,104 @@
-0,250,255
+20,0,150
 255,100,4
 0,0,0
 100,100,100
 assets/images/orange.png
-assets/music/music1.mp3
+assets/music/music2.mp3
+O
 O
 O
 O
 OOO
-OOO
-OOO
-OOO
-OOO
-OX
-OX
-OX
-OX  O
-OX  O
-OX  O
-OX
-OX
-OX
-OX    O
-OX    O
-OX    O
-OX
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      OX
-OX      OX
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX      O
-OX
-OX        O
-OX        O
-OX        O OX
-OX          OX
-OX
-OX      O
-OX      O
-OX      O
-OX
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        OX
-OX        OX
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX
-OX
-OX
-OX
-OX        O
-OX        O
-OX
-OX
-OX
-OX
-OX        O
-OX        O
-OX
-OX
-OX
-OX
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        OX
-OX        OX
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        O
-OX        OX
-OX        OX
-OX         O
-OX         O
-OX         O
-OX         O
-OX         O
-OX         O
-OX         O
-OX         O
-OX         O
-OX         O
-OX
-OX
-OX       O
-OX
-OX
-OX     O
-OX
-OX
-OX
-OX  O
-OX
-OX
 OO
 OO
 OO
 OO
 OO
 OO
-OX
-OX
-OX
-O
-O
+OO
+OO
+OO
+OO
+OO
+OOX
+OOX
+OO
+OO
+OO
+OO
+OO
+OO
+OOX
+OOX
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OOOO
+OOOO
+OOOO
+OOOO
+OOOOOO
+OOOOOO
+OOOOOO
+OOOOOO
+OOOOOO
+OOOOOO
+OOOOOOX
+OOOOX
+OOX
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OOOO
+OOOO
+OOOO
+OOOO
+OOOOOO
+OOOOOO
+OOOOOO
+OOOOOO
+OOOOOO
+OOOOOO
+OOOOOOX
+OOOOX
+OOX
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
+OO
 OEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 O
 O
