@@ -56,10 +56,14 @@ class Block:
 
     @staticmethod
     def isCollision(block1, block2):
-        if abs(((block1.bottom() - block2.top()) 
+        if (((block1.bottom() - block2.top()) 
                 > (block2.bottom() - block2.top()) / 2) and 
-                (abs(block1.bottom() - block2.top()) 
-                    <= (block2.bottom() - block2.top()))):
+                ((block1.bottom() - block2.top()) 
+                    <= (block2.bottom() - block2.top()))):# or
+                #(((block1.top() - block2.top()) 
+                #> (block2.bottom() - block2.top()) / 2) and 
+                #((block1.top() - block2.top()) 
+                #    < (block2.bottom() - block2.top())))):
             if (block1.right() >= block2.left() and block1.right() <= block2.right()):
                 return True
             if (block1.left() >= block2.left() and block1.left() <= block2.right()):
