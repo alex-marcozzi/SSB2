@@ -114,7 +114,7 @@ class Engine:
             if self.end_time == -1:
                 self.end_time = self.current_time
             self.fade_pct = (self.current_time - self.end_time) / self.fade_time
-        if self.atLevelCompleteScreen():#(self.fade_pct >= 1):
+        if self.atLevelCompleteScreen():
             return
         # small pause after death before resetting
         if (self.is_dead):
@@ -153,30 +153,20 @@ class Engine:
                         self.is_dead = True
                         pygame.mixer.Sound.play(self.death_sound)
                         pygame.mixer.music.stop()
-                #else:
-                #    if pygame.time.get_ticks() - self.ground_time >= 50:
-                #        self.player.rotate(-0.5)
-                #    else:
-                #        self.player.resetRotation()
+
             if not grounded:
                 if pygame.time.get_ticks() - self.ground_time >= 50:
                     self.player.rotate(-(dt / 3.2))
                 else:
                     self.player.resetRotation()
 
-        return(False)
-
     def draw(self, screen):
-        #blockmap_copy = self.blockmap.copy()
-        #frame = Frame(blockmap_copy, self.frame_length)
-
-        # change this, it shouldn't be player color it should be font color
         if self.fade_pct >= 1:
                 screen.fill((0,0,0))
                 self.drawTextXCenter(screen, "Level Complete", (255,100,4), 100, self.height / 2)
                 self.drawTextXCenter(screen, "ESC) Main Menu", (255,100,4), 50, 3 * self.height / 4)
         else:
-            screen.fill([col * (1 - self.fade_pct) for col in self.background_color])#self.background_color)
+            screen.fill([col * (1 - self.fade_pct) for col in self.background_color])
             if self.is_dead == False:
                 self.player.draw(screen, self.fade_pct)
             self.frame.draw(screen, self.fade_pct)
