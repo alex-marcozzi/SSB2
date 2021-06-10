@@ -173,7 +173,7 @@ class Engine:
         # change this, it shouldn't be player color it should be font color
         if self.fade_pct >= 1:
                 screen.fill((0,0,0))
-                self.drawTextXCenter(screen, "Level Complete", self.player_color, 100, self.height / 2)
+                self.drawTextXCenter(screen, "Level Complete", (255,100,4), 100, self.height / 2)
         else:
             screen.fill([col * (1 - self.fade_pct) for col in self.background_color])#self.background_color)
             if self.is_dead == False:

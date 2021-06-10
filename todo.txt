@@ -9,7 +9,7 @@
 8X.  add buttons to the menu
 9X.  add credits screen
 10X. add menu music
-11.  add back buttons for all menus
+11X. add back buttons for all menus
 12.  add pause animation (maybe?)
 13.  add death animation (maybe?)
 14.  balance maps
