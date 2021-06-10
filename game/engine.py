@@ -179,7 +179,7 @@ class Engine:
             if self.is_dead == False:
                 self.player.draw(screen, self.fade_pct)
             self.frame.draw(screen, self.fade_pct)
-            self.FONT.render_to(screen, ((self.width / 2) - 100, self.height / 5), 
+            self.FONT.render_to(screen, ((self.width / 2) - 100, self.height / 8), 
                     "Attempt   " + str(self.attempts), [col * (1 - self.fade_pct) 
                         for col in self.player_color])
     
