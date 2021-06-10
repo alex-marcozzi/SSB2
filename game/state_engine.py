@@ -94,8 +94,14 @@ class StateEngine:
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    self.state = State.PAUSED
-                    pygame.mixer.music.pause()
+                    if self.engine.atLevelCompleteScreen():
+                        self.state = State.MAIN
+                        pygame.mixer.music.stop()
+                        pygame.mixer.music.load("assets/music/menu.mp3")
+                        pygame.mixer.music.play()
+                    else:
+                        self.state = State.PAUSED
+                        pygame.mixer.music.pause()
         self.engine.update(self.dt)
     
     def updatePaused(self, events):

@@ -114,7 +114,7 @@ class Engine:
             if self.end_time == -1:
                 self.end_time = self.current_time
             self.fade_pct = (self.current_time - self.end_time) / self.fade_time
-        if (self.fade_pct >= 1):
+        if self.atLevelCompleteScreen():#(self.fade_pct >= 1):
             return
         # small pause after death before resetting
         if (self.is_dead):
@@ -174,6 +174,7 @@ class Engine:
         if self.fade_pct >= 1:
                 screen.fill((0,0,0))
                 self.drawTextXCenter(screen, "Level Complete", (255,100,4), 100, self.height / 2)
+                self.drawTextXCenter(screen, "ESC) Main Menu", (255,100,4), 50, 3 * self.height / 4)
         else:
             screen.fill([col * (1 - self.fade_pct) for col in self.background_color])#self.background_color)
             if self.is_dead == False:
@@ -187,3 +188,6 @@ class Engine:
         text_rect = self.FONT.get_rect(text, size = size)
         text_rect.center = (self.width / 2, y)
         self.FONT.render_to(screen, text_rect, text, color, size = size)
+
+    def atLevelCompleteScreen(self):
+        return self.fade_pct >= 1
