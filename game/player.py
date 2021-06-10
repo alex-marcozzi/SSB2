@@ -11,10 +11,11 @@ class Player(Block):
         Block.__init__(self, blockrect, speed, (0,0,0), BlockType.BLOCK)
         self.total_angle = 0
 
-    def update(self, clock):
-        Block.update(self, clock)
+    def update(self, dt):
+        Block.update(self, dt)
+        #print(dt / 80.0)
         if (self.speed[1] < self.max_speed):
-            self.speed[1] += 0.2
+            self.speed[1] += dt / 80.0#0.2
 
     def rotate(self, angle):
         self.total_angle += angle

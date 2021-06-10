@@ -10,13 +10,13 @@ flags = pygame.SCALED|pygame.DOUBLEBUF|pygame.HWSURFACE|pygame.FULLSCREEN
 screen = pygame.display.set_mode(size, flags)
 
 clock = pygame.time.Clock()
-state_engine = StateEngine(width, height, clock.tick(60))
+state_engine = StateEngine(width, height, clock.tick_busy_loop(120))
 while 1:
     events = pygame.event.get()
     for event in events:
         if event.type == pygame.QUIT: sys.exit()
 
-    clock.tick(60)
+    clock.tick_busy_loop(120)
     state_engine.update(events)
 
     screen.fill((0, 0, 0))

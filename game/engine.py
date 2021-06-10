@@ -160,7 +160,7 @@ class Engine:
                 #        self.player.resetRotation()
             if not grounded:
                 if pygame.time.get_ticks() - self.ground_time >= 50:
-                    self.player.rotate(-5)
+                    self.player.rotate(-(dt / 3.2))
                 else:
                     self.player.resetRotation()
 
