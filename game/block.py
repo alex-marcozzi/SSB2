@@ -151,16 +151,18 @@ class Block:
         if block1.speed[1] < 0:
             return False
 
+        tolerance = 5
+
         # if the block is not a spike, there is a block-sized window where
         # block1 is considered ontop of block2. this tolerance is to prevent
         # falling through blocks at higher speeds. if it is a spike, we want
         # to be exact to prevent unfair deaths
         if ((block2.block_type != BlockType.SPIKE and 
-                abs(block1.bottom() - block2.top()) 
-                <= (block2.bottom() - block2.top())/2) or
+                (abs(block1.bottom() - block2.top()) - (block2.bottom() - block2.top())/2) 
+                <= tolerance) or
             (block2.block_type == BlockType.SPIKE and 
-                block1.bottom() >= block2.top() and 
-                block1.bottom() <= block2.bottom())):
+                block1.bottom() - block2.top() >= tolerance and 
+                block1.bottom() - block2.bottom() <= tolerance)):
             # the blocks must be vertically alligned in order to be stacked
             if (block1.right() >= block2.left() and block1.right() <= block2.right()):
                 return True
@@ -181,13 +183,15 @@ class Block:
             The second block
         """
 
+        tolerance = 5  # accounts for resolutions that do not evenly divide into blocks
+
         # if the bottom of the first block hits the bottom half of the
         # second block, it is considered a collision rather than being
         # on top
-        if (((block1.bottom() - block2.top()) 
-                > (block2.bottom() - block2.top()) / 2) and 
-                ((block1.bottom() - block2.top()) 
-                    <= (block2.bottom() - block2.top()))):
+        if (((block1.bottom() - block2.top()) - (block2.bottom() - block2.top()) / 2)
+                >  tolerance and 
+                ((block1.bottom() - block2.top()) - (block2.bottom() - block2.top()) 
+                    <= tolerance)):
             # the blocks must be vertically alligned in order to collide
             if (block1.right() >= block2.left() and block1.right() <= block2.right()):
                 return True
