@@ -3,13 +3,13 @@ from game.state_engine import StateEngine
 pygame.init()
 pygame.mixer.init()
 
-#infoObject = pygame.display.Info()
-#pygame.display.set_mode((infoObject.current_w, infoObject.current_h))
+infoObject = pygame.display.Info()
+pygame.display.set_mode((infoObject.current_w, infoObject.current_h))
 
-#size = width, height = 800, 600
+#size = width, height = 800, 466
 #size = width, height = 1200, 700
-size = width, height = 1800, 1050
-#size = width, height = infoObject.current_w, infoObject.current_h
+#size = width, height = 1800, 1050
+size = width, height = infoObject.current_w, infoObject.current_h
 
 flags = pygame.SCALED|pygame.DOUBLEBUF|pygame.HWSURFACE|pygame.FULLSCREEN
 screen = pygame.display.set_mode(size, flags)

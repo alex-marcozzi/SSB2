@@ -55,7 +55,7 @@ class Engine:
 
         for i in range(1, self.frame_length):
             self.blockmap.append([Block(pygame.Rect(self.block_size * i,
-                    self.frame_height, self.block_size, self.block_size),
+                    self.frame_height, self.block_size * 1.1, self.block_size),
                     self.block_speed, self.block_color, BlockType.BLOCK)])
 
         for l in range(6, len(lines)):
@@ -70,7 +70,7 @@ class Engine:
                     line_blocks.append(Block(pygame.Rect(
                             self.block_size * (self.frame_length - 1),
                             self.frame_height - (self.block_size * i),
-                            self.block_size, self.block_size),
+                            self.block_size * 1.1, self.block_size),
                             self.block_speed,
                             self.block_color, BlockType.BLOCK))
                 if (character == 'X'):
