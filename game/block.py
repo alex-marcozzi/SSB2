@@ -12,8 +12,8 @@ class Block:
     blockrect : pygame.Rect
         a pygame rectangle object that holds the positional and spatial
         information of the block
-    speed : float
-        the speed at which the block will move
+    speed : list(float)
+        the speed at which the block will move in the X and Y directions
     color : tuple(int)
         the color of the block in RGB format
     block_type: BlockType
@@ -24,7 +24,7 @@ class Block:
     update(dt)
         Updates the position of the block
     draw(screen, fade_pct)
-        Draws the block on the screen
+        Draws the block onto the screen
     left()
         Returns the position of the left side of the block
     right()
@@ -48,8 +48,8 @@ class Block:
         blockrect : pygame.Rect
             A pygame rectangle object that holds the positional and spatial
             information of the block
-        speed : float
-            The speed at which the block will move
+        speed : list(float)
+            The speed at which the block will move in the X and Y directions
         color : tuple(int)
             The color of the block in RGB format
         block_type: BlockType
@@ -112,24 +112,28 @@ class Block:
         """
         Returns the position of the left side of the block
         """
+
         return self.blockrect.left
 
     def right(self):
         """
         Returns the position of the right side of the block
         """
+
         return self.blockrect.right
 
     def top(self):
         """
         Returns the position of the top side of the block
         """
+
         return self.blockrect.top
 
     def bottom(self):
         """
         Returns the position of the bottom side of the block
         """
+
         return self.blockrect.bottom
 
     @staticmethod
@@ -147,6 +151,7 @@ class Block:
         block2 : Block
             The second block
         """
+        
         # if the block is rising, it can't be on top of something
         if block1.speed[1] < 0:
             return False
@@ -158,15 +163,17 @@ class Block:
         # falling through blocks at higher speeds. if it is a spike, we want
         # to be exact to prevent unfair deaths
         if ((block2.block_type != BlockType.SPIKE and 
-                (abs(block1.bottom() - block2.top()) - (block2.bottom() - block2.top())/2) 
-                <= tolerance) or
+                (abs(block1.bottom() - block2.top()) 
+                - (block2.bottom() - block2.top())/2) <= tolerance) or
             (block2.block_type == BlockType.SPIKE and 
                 block1.bottom() - block2.top() >= tolerance and 
                 block1.bottom() - block2.bottom() <= tolerance)):
             # the blocks must be vertically alligned in order to be stacked
-            if (block1.right() >= block2.left() and block1.right() <= block2.right()):
+            if (block1.right() >= block2.left() and 
+                block1.right() <= block2.right()):
                 return True
-            if (block1.left() >= block2.left() and block1.left() <= block2.right()):
+            if (block1.left() >= block2.left() and 
+                block1.left() <= block2.right()):
                 return True
         return False
 
@@ -188,14 +195,16 @@ class Block:
         # if the bottom of the first block hits the bottom half of the
         # second block, it is considered a collision rather than being
         # on top
-        if (((block1.bottom() - block2.top()) - (block2.bottom() - block2.top()) / 2)
-                >  tolerance and 
-                ((block1.bottom() - block2.top()) - (block2.bottom() - block2.top()) 
-                    <= tolerance)):
+        if (((block1.bottom() - block2.top()) 
+            - (block2.bottom() - block2.top()) / 2) >  tolerance and 
+                ((block1.bottom() - block2.top()) 
+                - (block2.bottom() - block2.top()) <= tolerance)):
             # the blocks must be vertically alligned in order to collide
-            if (block1.right() >= block2.left() and block1.right() <= block2.right()):
+            if (block1.right() >= block2.left() and 
+                block1.right() <= block2.right()):
                 return True
-            if (block1.left() >= block2.left() and block1.left() <= block2.right()):
+            if (block1.left() >= block2.left() and 
+                block1.left() <= block2.right()):
                 return True
         return False
 
