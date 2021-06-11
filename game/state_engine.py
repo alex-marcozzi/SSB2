@@ -129,32 +129,32 @@ class StateEngine:
     
     def drawMain(self, screen):
         screen.fill(self.background_color)
-        self.drawTextXCenter(screen, "Super Square Boy", self.font_color, 100, self.height / 6, True)
-        self.drawTextXCenter(screen, "1) Level Select", self.font_color, 70, self.height / 2)
-        self.drawTextXCenter(screen, "2) Credits", self.font_color, 70, self.height / 2 + 100)
-        self.drawTextXCenter(screen, "3) Exit Game", self.font_color, 70, self.height / 2 + 200)
+        self.drawTextXCenter(screen, "Super Square Boy", self.font_color, self.width / 10, self.height / 6, True)
+        self.drawTextXCenter(screen, "1) Level Select", self.font_color, self.width / 17, self.height / 2 - self.height / 14)
+        self.drawTextXCenter(screen, "2) Credits", self.font_color, self.width / 17, self.height / 2 + self.height / 14)
+        self.drawTextXCenter(screen, "3) Exit Game", self.font_color, self.width / 17, self.height / 2 + self.height / 4.66)
     
     def drawLevelSelect(self, screen):
         screen.fill(self.background_color)
-        self.drawTextXCenter(screen, "Level Select", self.font_color, 100, self.height / 6, True)
-        self.drawTextXCenter(screen, "1) RPM", self.font_color, 50, self.height / 2 - 75)
-        self.drawTextXCenter(screen, "2) Deep Blue", self.font_color, 50, self.height / 2)
-        self.drawTextXCenter(screen, "3) Luminous", self.font_color, 50, self.height / 2 + 75)
-        self.drawTextXCenter(screen, "4) Spectre", self.font_color, 50, self.height / 2 + 150)
+        self.drawTextXCenter(screen, "Level Select", self.font_color, self.width / 9, self.height / 6, True)
+        self.drawTextXCenter(screen, "1) RPM", self.font_color, self.width / 18, self.height / 2 - self.height / 9.33)
+        self.drawTextXCenter(screen, "2) Deep Blue", self.font_color, self.width / 18, self.height / 2)
+        self.drawTextXCenter(screen, "3) Luminous", self.font_color, self.width / 18, self.height / 2 + self.height / 9.33)
+        self.drawTextXCenter(screen, "4) Spectre", self.font_color, self.width / 18, self.height / 2 + self.height / 4.66)
         self.drawBackButton(screen)
     
     def drawCredits(self, screen):
         screen.fill(self.background_color)
-        self.drawTextXCenter(screen, "Credits", self.font_color, 120, self.height / 6, True)
-        self.drawTextXCenter(screen, "Created by Alexander Marcozzi", self.font_color, 30, self.height / 6 + 75)
-        self.drawTextXCenter(screen, "email: alex.marcozzi1_gmail.com", self.font_color, 30, self.height / 6 + 100)
-        self.drawTextXCenter(screen, "github: github.com/alex-marcozzi", self.font_color, 30, self.height / 6 + 125)
-        self.drawTextXCenter(screen, "Music", self.font_color, 70, self.height / 2 - 50)
-        self.drawTextXCenter(screen, "Main Menu: \"Away with the Fairies\" by Philanthrope", self.font_color, 50, self.height / 2)
-        self.drawTextXCenter(screen, "Level 1: \"RPM\" by env", self.font_color, 50, self.height / 2 + 50)
-        self.drawTextXCenter(screen, "Level 2: \"Deep Blue\" by K-391", self.font_color, 50, self.height / 2 + 100)
-        self.drawTextXCenter(screen, "Level 3: \"Luminous\" by Lensko", self.font_color, 50, self.height / 2 + 150)
-        self.drawTextXCenter(screen, "Level 4 \"Spectre\" by Alan Walker", self.font_color, 50, self.height / 2 + 200)
+        self.drawTextXCenter(screen, "Credits", self.font_color, self.width / 10, self.height / 6, True)
+        self.drawTextXCenter(screen, "Created by Alexander Marcozzi", self.font_color, self.width / 40, self.height / 6 + self.height / 9.33)
+        self.drawTextXCenter(screen, "email: alex.marcozzi1_gmail.com", self.font_color, self.width / 40, self.height / 6 + self.height / 7)
+        self.drawTextXCenter(screen, "github: github.com/alex-marcozzi", self.font_color, self.width / 40, self.height / 6 + self.height / 5.6)
+        self.drawTextXCenter(screen, "Music", self.font_color, self.width / 17, self.height / 2 - self.height / 14)
+        self.drawTextXCenter(screen, "Main Menu: \"Away with the Fairies\" by Philanthrope", self.font_color, self.width / 24, self.height / 2)
+        self.drawTextXCenter(screen, "Level 1: \"RPM\" by env", self.font_color, self.width / 24, self.height / 2 + self.height / 14)
+        self.drawTextXCenter(screen, "Level 2: \"Deep Blue\" by K-391", self.font_color, self.width / 24, self.height / 2 + self.height / 7)
+        self.drawTextXCenter(screen, "Level 3: \"Luminous\" by Lensko", self.font_color, self.width / 24, self.height / 2 + self.height / 4.66)
+        self.drawTextXCenter(screen, "Level 4 \"Spectre\" by Alan Walker", self.font_color, self.width / 24, self.height / 2 + self.height / 3.5)
         self.drawBackButton(screen)
     
 
@@ -164,9 +164,9 @@ class StateEngine:
 
     def drawPaused(self, screen):
         screen.fill(self.background_color)
-        self.drawTextXCenter(screen, "Paused", self.font_color, 200, self.height / 6, True)
-        self.drawTextXCenter(screen, "1) Resume", self.font_color, 70, self.height / 2)
-        self.drawTextXCenter(screen, "2) Main Menu", self.font_color, 70, self.height / 2 + 100)
+        self.drawTextXCenter(screen, "Paused", self.font_color, self.width / 6, self.height / 6, True)
+        self.drawTextXCenter(screen, "1) Resume", self.font_color, self.width / 17, self.height / 2)
+        self.drawTextXCenter(screen, "2) Main Menu", self.font_color, self.width / 17, self.height / 2 + self.height / 7)
         #self.FONT.render_to(screen, ((self.width / 2) - 250, self.height / 5), 
         #        "Paused", self.font_color)
     
@@ -178,6 +178,6 @@ class StateEngine:
         self.FONT.underline = False
     
     def drawBackButton(self, screen):
-        text_rect = self.FONT.get_rect("ESC: Back", size = 30)
+        text_rect = self.FONT.get_rect("ESC) Back", size = self.width / 40)
         text_rect.center = (self.width / 10, 9 * self.height / 10)
-        self.FONT.render_to(screen, text_rect, "ESC: Back", self.font_color, size = 30)
+        self.FONT.render_to(screen, text_rect, "ESC) Back", self.font_color, size = self.width / 40)

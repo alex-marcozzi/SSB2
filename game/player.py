@@ -6,8 +6,9 @@ from game.blocktype import BlockType
 class Player(Block):
     def __init__(self, blockrect, speed, image_path):
         self.jump_height = 3
-        self.max_speed = 2
+        self.max_speed = blockrect.width / 20#2
         self.base_image = pygame.image.load(image_path)#"assets/images/orange.png")
+        self.base_image = pygame.transform.smoothscale(self.base_image, (blockrect.width, blockrect.height))
         Block.__init__(self, blockrect, speed, (0,0,0), BlockType.BLOCK)
         self.total_angle = 0
 
@@ -15,7 +16,7 @@ class Player(Block):
         Block.update(self, dt)
         #print(dt / 80.0)
         if (self.speed[1] < self.max_speed):
-            self.speed[1] += dt / 80.0#0.2
+            self.speed[1] += (dt / 3200.0) * self.blockrect.width#(self.blockrect.width * 2)#80.0#0.2
 
     def rotate(self, angle):
         self.total_angle += angle

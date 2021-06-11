@@ -14,8 +14,8 @@ class Engine:
         self.height          = height
         self.is_dead         = False
         self.level_ended     = False
-        self.block_size      = 40#80
-        self.block_speed     = [-0.50, 0]
+        self.block_size      = int(width / 30)#40#80
+        self.block_speed     = [-(width / 2400.0), 0]#[-0.50, 0]
         self.running_speed   = 5
         self.running_counter = 0
         self.max_counter     = 5
@@ -46,7 +46,7 @@ class Engine:
         f = open(filepath, 'r')
         lines = f.readlines()
         self.loadMetaInfo(lines)
-        self.player = Player(pygame.Rect(200, 200, self.block_size,
+        self.player = Player(pygame.Rect(self.width / 6, self.height / 2, self.block_size,
                 self.block_size), [0, 1], self.player_img)#self.player_color) 
         # initialize the level's block layout
         self.blockmap = [[Block(pygame.Rect(0, self.frame_height,
@@ -163,16 +163,19 @@ class Engine:
     def draw(self, screen):
         if self.fade_pct >= 1:
                 screen.fill((0,0,0))
-                self.drawTextXCenter(screen, "Level Complete", (255,100,4), 100, self.height / 2)
+                self.drawTextXCenter(screen, "Level Complete", (255,100,4), self.width / 12, self.height / 2)#100, self.height / 2)
                 self.drawTextXCenter(screen, "ESC) Main Menu", (255,100,4), 50, 3 * self.height / 4)
         else:
             screen.fill([col * (1 - self.fade_pct) for col in self.background_color])
             if self.is_dead == False:
                 self.player.draw(screen, self.fade_pct)
             self.frame.draw(screen, self.fade_pct)
-            self.FONT.render_to(screen, ((self.width / 2) - 100, self.height / 8), 
-                    "Attempt   " + str(self.attempts), [col * (1 - self.fade_pct) 
-                        for col in self.player_color])
+            self.drawTextXCenter(screen, "Attempt   " + str(self.attempts), 
+                [col * (1 - self.fade_pct) for col in self.player_color], 
+                self.width / 25, self.height / 8)
+            #self.FONT.render_to(screen, ((self.width / 2) - 100, self.height / 8), 
+            #        "Attempt   " + str(self.attempts), [col * (1 - self.fade_pct) 
+            #            for col in self.player_color])
     
     def drawTextXCenter(self, screen, text, color, size, y):
         text_rect = self.FONT.get_rect(text, size = size)
