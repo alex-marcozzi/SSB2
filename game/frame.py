@@ -79,6 +79,6 @@ class Frame:
         """
         Gets all blocks that could potentially interact with the player.
         """
-        # check more than necessary to ensure nothing is missed
+        # check more than necessary to ensure no interactions are missed
         return list(chain.from_iterable(self.blockmap[
             self.pos+3:self.pos+int(self.length / 2)]))
