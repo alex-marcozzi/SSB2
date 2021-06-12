@@ -1,5 +1,9 @@
+# Title: player.py
+# Description: Contains the Player class for Super Square Boy 2.
+# Author: Alexander Marcozzi
+# Date: 06/12/2021
+
 import pygame
-import copy
 from game.block import Block
 from game.blocktype import BlockType
 

@@ -1,3 +1,8 @@
+# Title: state_engine.py
+# Description: Contains the StateEngine class for Super Square Boy 2.
+# Author: Alexander Marcozzi
+# Date: 06/12/2021
+
 import pygame
 import pygame.freetype
 from enum import Enum

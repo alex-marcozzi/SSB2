@@ -1,3 +1,8 @@
+# Title: frame.py
+# Description: Contains the Frame class for Super Square Boy 2.
+# Author: Alexander Marcozzi
+# Date: 06/12/2021
+
 from itertools import chain
 
 class Frame:

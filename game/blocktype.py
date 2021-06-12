@@ -1,3 +1,8 @@
+# Title: blocktype.py
+# Description: Contains the BlockType enum class for Super Square Boy 2.
+# Author: Alexander Marcozzi
+# Date: 06/12/2021
+
 from enum import Enum
 
 class BlockType(Enum):

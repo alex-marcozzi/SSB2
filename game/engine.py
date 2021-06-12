@@ -1,3 +1,8 @@
+# Title: engine.py
+# Description: Contains the Engine class for Super Square Boy 2.
+# Author: Alexander Marcozzi
+# Date: 06/12/2021
+
 import pygame
 import pygame.freetype
 import copy

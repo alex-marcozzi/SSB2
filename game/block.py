@@ -1,3 +1,8 @@
+# Title: block.py
+# Description: Contains the Block class for Super Square Boy 2.
+# Author: Alexander Marcozzi
+# Date: 06/12/2021
+
 import pygame
 from game.blocktype import BlockType
 
