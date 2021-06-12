@@ -1392,7 +1392,7 @@ OX       OX
 OX  O     OX
 OX         OX
 OX          OX
-OX     O    OX
+OX     O     OX
 OX           O
 OX           O
 OX        O  O
