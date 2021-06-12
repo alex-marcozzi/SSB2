@@ -16,7 +16,7 @@ class Block:
         the speed at which the block will move in the X and Y directions
     color : tuple(int)
         the color of the block in RGB format
-    block_type: BlockType
+    block_type : BlockType
         the type of the block
     
     Methods

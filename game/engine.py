@@ -47,7 +47,7 @@ class Engine:
     attempts : int
         the current attempt the player is on
     FONT : pygame freetype font object
-        the font to be rendered as text later
+        the font to be rendered as text
     death_sound : pygame mixer sound object
         the sound to be played when the player dies
     background_color : tuple(int)
@@ -84,6 +84,7 @@ class Engine:
     atLevelCompleteScreen()
         Returns whether the engine is at the level complete screen or not
     """
+
     def __init__(self, width, height):
         """
         Parameters
@@ -283,7 +284,7 @@ class Engine:
                         self.player.speed[1] = 0
                         self.player.resetRotation()
                         Block.snapOnTop(self.player, block)
-                        if keys[pygame.K_UP]:
+                        if keys[pygame.K_UP] or keys[pygame.K_SPACE]:
                             self.player.jump()
                 elif Block.isCollision(self.player, block):
                     # if the player collides with an end block, the level
