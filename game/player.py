@@ -33,6 +33,7 @@ class Player(Block):
     jump()
         Increases the player's vertical speed, simulating a jump
     """
+
     def __init__(self, blockrect, speed, image_path):
         """
         Parameters
@@ -45,7 +46,6 @@ class Player(Block):
         image_path : str
             The file path of the player image
         """
-
         Block.__init__(self, blockrect, speed, (0,0,0), BlockType.BLOCK)
         self.max_speed = blockrect.width / 20
         self.base_image = pygame.image.load(image_path)
@@ -65,7 +65,6 @@ class Player(Block):
         dt : int
             The clock's tick rate
         """
-
         Block.update(self, dt)
         if (self.speed[1] < self.max_speed):
             self.speed[1] += (dt / 3200.0) * self.blockrect.width  # gravity
@@ -84,7 +83,6 @@ class Player(Block):
             The amount the block should appear faded. 0 being no fade and 1
             being fully faded
         """
-
         image = pygame.transform.rotate(self.base_image, self.total_angle)
         new_rect = image.get_rect(center = self.blockrect.center)
         image.set_alpha(255 * (1 - fade_pct))
@@ -99,19 +97,16 @@ class Player(Block):
         angle: int
             The angle the player should be rotated
         """
-
         self.total_angle += angle
 
     def resetRotation(self):
         """
         Resets the player's rotation angle back to 0.
         """
-
         self.total_angle = 0
     
     def jump(self):
         """
         Increases the player's vertical speed, simulating a jump.
         """
-
         self.speed[1] = -self.max_speed

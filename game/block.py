@@ -55,7 +55,6 @@ class Block:
         block_type: BlockType
             The type of the block
         """
-
         self.blockrect  = blockrect
         self.speed      = speed
         self.color      = color
@@ -74,14 +73,13 @@ class Block:
         dt : int
             The clock's tick rate
         """
-
         # use the pygame.Rect's move function on adjusted speed values
         self.blockrect = self.blockrect.move([int(self.speed[0] * dt), 
             int(self.speed[1] * dt)])
     
     def draw(self, screen, fade_pct):
         """
-        Draws the block on the screen.
+        Draws the block onto the screen.
 
         Adjusts the colors based on the passed in fade percentage.
 
@@ -90,10 +88,9 @@ class Block:
         screen : pygame display surface
             The screen to draw onto
         fade_pct : float
-            The amount the block should appear faded. 0 being no fade and 1
+            The amount the blocks should appear faded. 0 being no fade and 1
             being fully faded
         """
-
         if (self.block_type is BlockType.SPIKE):
             # draw a triangle to represent the spike
             pygame.draw.polygon(screen, 
@@ -112,28 +109,24 @@ class Block:
         """
         Returns the position of the left side of the block
         """
-
         return self.blockrect.left
 
     def right(self):
         """
         Returns the position of the right side of the block
         """
-
         return self.blockrect.right
 
     def top(self):
         """
         Returns the position of the top side of the block
         """
-
         return self.blockrect.top
 
     def bottom(self):
         """
         Returns the position of the bottom side of the block
         """
-
         return self.blockrect.bottom
 
     @staticmethod
@@ -151,7 +144,6 @@ class Block:
         block2 : Block
             The second block
         """
-        
         # if the block is rising, it can't be on top of something
         if block1.speed[1] < 0:
             return False
@@ -189,7 +181,6 @@ class Block:
         block2 : Block
             The second block
         """
-
         tolerance = 5  # accounts for resolutions that do not evenly divide into blocks
 
         # if the bottom of the first block hits the bottom half of the
@@ -220,6 +211,5 @@ class Block:
         block2 : Block
             The second block
         """
-
         distance = block1.bottom() - block2.top()
         block1.blockrect = block1.blockrect.move(0, -distance)
