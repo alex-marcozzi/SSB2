@@ -1,5 +1,4 @@
 import pygame
-from pygame.constants import K_ESCAPE
 import pygame.freetype
 from enum import Enum
 from game.engine import Engine
@@ -177,13 +176,9 @@ class StateEngine:
                     self.state = State.PLAYING
                     self.engine.loadLevel("assets/levels/level4.txt")
                     self.engine.reset()
-                elif event.key == pygame.K_5:
-                    self.state = State.PLAYING
-                    self.engine.loadLevel("assets/levels/testlevel1.txt")
-                    self.engine.reset()
                 elif event.key == pygame.K_6:
                     self.state = State.PLAYING
-                    self.engine.loadLevel("assets/levels/provinggrounds.txt")
+                    self.engine.loadLevel("assets/levels/secret.txt")
                     self.engine.reset()
                 elif event.key == pygame.K_ESCAPE:
                     self.state = State.MAIN
