@@ -35,7 +35,7 @@ class State(Enum):
 
 class StateEngine:
     """
-    A class that handels the state of the game, including menu traversal.
+    A class that handles the state of the game, including menu traversal.
 
     All "magic numbers" and formulas were acquired from manual testing.
 
