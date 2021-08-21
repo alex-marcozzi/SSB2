@@ -35,7 +35,7 @@ class State(Enum):
 
 class StateEngine:
     """
-    A class representing a block. See BlockType for the different types.
+    A class that handels the state of the game, including menu traversal.
 
     All "magic numbers" and formulas were acquired from manual testing.
 
